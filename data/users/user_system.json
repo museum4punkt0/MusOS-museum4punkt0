@@ -1,0 +1,16 @@
+{
+    "id": "user.system",
+    "type": "user",
+    "title": "System",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "email": "system@localhost",
+        "imageurl": "placeholders/star.svg",
+        "name": "System",
+        "password": "contexagon",
+        "roles": ["role.system", "role.admin", "role.developer"]
+    }
+}

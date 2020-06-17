@@ -1,0 +1,136 @@
+{
+    "id": "type.controlaction",
+    "type": "type",
+    "title": "Steuerbefehl",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "controlaction",
+        "name": "Steuerbefehl",
+        "parent": "generalaction",
+        "internal": true,
+        "titlefields": ["command"],
+        "tablefields": ["active", "start", "delay", "duration", "command"],
+        "iconurl": "icons/mdi/gamepad-circle-right.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.scenography"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "content",
+                    "name": "Inhalt",
+                    "fields": [
+                        {
+                            "id": "active",
+                            "name": "aktiv",
+                            "type": "bool",
+                            "default": true
+                        },
+                        {
+                            "id": "command",
+                            "name": "Befehl",
+                            "type": "select",
+                            "options": [
+                                "reset",
+                                "clearchat",
+                                "showchat",
+                                "showchatonly",
+                                "hidechat",
+                                "pause",
+                                "resume",
+                                "showmenu-a",
+                                "hidemenu-a",
+                                "togglemenu-a",
+                                "showmenu-b",
+                                "hidemenu-b",
+                                "togglemenu-b",
+                                "resetvisitorstate",
+                                "clearsubjects",
+                                "showscreensaver",
+                                "resetidletimer"],
+                            "translations": {
+                                "reset": {"de": "zurücksetzen"},
+                                "clearchat": {"de": "Chatverlauf löschen"},
+                                "showchat": {"de": "Chat anzeigen"},
+                                "showchatonly": {"de": "Chat exklusiv anzeigen"},
+                                "hidechat": {"de": "Chat verbergen"},
+                                "pause": {"de": "Wiedergabe pausieren"},
+                                "resume": {"de": "Wiedergabe fortsetzen"},
+                                "showmenu-a": {"de": "Menü A anzeigen"},
+                                "hidemenu-a": {"de": "Menü A verbergen"},
+                                "togglemenu-a": {"de": "Menü A umschalten"},
+                                "showmenu-b": {"de": "Menü B anzeigen"},
+                                "hidemenu-b": {"de": "Menü B verbergen"},
+                                "togglemenu-b": {"de": "Menü B umschalten"},
+                                "resetvisitorstate": {"de": "Besucherstatus zurücksetzen"},
+                                "clearsubjects": {"de": "Gegenstände löschen"},
+                                "showscreensaver": {"de": "Screensaver anzeigen"},
+                                "resetidletimer": {"de": "Idle-Timer zurücksetzen"}
+                            },
+                            "mandatory": true
+                        }
+                    ]
+                },
+                {
+                    "id": "timing",
+                    "name": "Timing",
+                    "joinsidebar": "content",
+                    "fields": [
+                        {
+                            "id": "start",
+                            "name": "Start",
+                            "type": "select",
+                            "options": ["initially", "withprevious", "afterprevious"],
+                            "translations": {
+                                "initially": {"de": "anfangs"},
+                                "withprevious": {"de": "mit vorigem"},
+                                "afterprevious": {"de": "nach vorigem"}
+                            },
+                            "default": "afterprevious"
+                        },
+                        {
+                            "id": "delay",
+                            "name": "Verzögerung",
+                            "type": "float",
+                            "suffixes": ["s", "ms", "min"],
+                            "defaultsuffix": "s",
+                            "default": 0
+                        },
+                        {
+                            "id": "duration",
+                            "name": "Dauer",
+                            "type": "float",
+                            "suffixes": ["s", "ms", "min"],
+                            "defaultsuffix": "s",
+                            "default": 0
+                        }
+                    ]
+                },
+                {
+                    "id": "additional",
+                    "name": "zusätzlich",
+                    "joinsidebar": "content",
+                    "fields": [
+                        {
+                            "id": "target",
+                            "name": "Zielgerät",
+                            "type": "reference",
+                            "reftypes": ["cbox", "channel"],
+                            "tooltip": "Zielgerät für diesen Befehl, nur anzugeben, wenn abweichend vom Standard-Zielgerät der Szene, mehrere Zielgeräte möglich"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

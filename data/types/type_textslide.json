@@ -1,0 +1,102 @@
+{
+    "id": "type.textslide",
+    "type": "type",
+    "title": "Textfolie",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "textslide",
+        "name": "Textfolie",
+        "parent": "content",
+        "titlefields": ["title"],
+        "tablefields": ["title"],
+        "placeholderurl": "placeholders/dvr.svg",
+        "iconurl": "icons/material/baseline/baseline-dvr-24px.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.office", "role.scenography", "role.designer"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "content",
+                    "name": "Inhalt",
+                    "fields": [
+                        {
+                            "id": "title",
+                            "name": "Titel",
+                            "type": "text"
+                        },
+                        {
+                            "id": "category",
+                            "name": "Kategorie",
+                            "type": "text"
+                        },
+                        {
+                            "id": "text",
+                            "name": "Text",
+                            "type": "markdown"
+                        }
+                    ]
+                },
+                {
+                    "id": "images",
+                    "name": "Bilder",
+                    "fields": [
+                        {
+                            "id": "images",
+                            "name": "Bilder",
+                            "type": "medialist"
+                        }
+                    ]
+                },
+                {
+                    "id": "design",
+                    "name": "Design",
+                    "fields": [
+                        {
+                            "id": "style",
+                            "name": "Stil",
+                            "type": "reference",
+                            "reftypes": ["stylesheet"],
+                            "quantity": "single"
+                        },
+                        {
+                            "id": "backgroundImage",
+                            "name": "Hintergrundbild",
+                            "type": "medialist",
+                            "quantity": "single"
+                        }
+                    ]
+                },
+                {
+                    "id": "commands",
+                    "name": "Befehle",
+                    "fields": [
+                        {
+                            "id": "testboxname",
+                            "name": "CBox-Name / Channel-ID",
+                            "type": "text",
+                            "transient": true
+                        },
+                        {
+                            "id": "playobjectcommand",
+                            "name": "Anzeigen",
+                            "type": "command",
+                            "resturl": "/play/object/<#id>?boxorchannel=<testboxname>",
+                            "restmethod": "GET"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,58 @@
+{
+    "id": "type.exactvaluecondition",
+    "type": "type",
+    "title": "exakter Wert",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "exactvaluecondition",
+        "name": "exakter Wert",
+        "parent": "condition",
+        "internal": true,
+        "titlefields": ["property.name", {"switch": "inverse", "case true": "≠", "else": "="}, "value"],
+        "tablefields": ["#title"],
+        "iconurl": "icons/mdi/equal-box.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.scenography"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "condition",
+                    "name": "Bedingung",
+                    "fields": [
+                        {
+                            "id": "property",
+                            "name": "Eigenschaft",
+                            "type": "reference",
+                            "reftypes": ["stateproperty"],
+                            "quantity": "single",
+                            "mandatory": true
+                        },
+                        {
+                            "id": "value",
+                            "name": "Wert",
+                            "type": "number"
+                        },
+                        {
+                            "id": "inverse",
+                            "name": "invers",
+                            "type": "bool",
+                            "default": false,
+                            "tooltip": "falls besagte Eigenschaft NICHT den angegebenen Wert haben soll"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

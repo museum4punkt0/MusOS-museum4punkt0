@@ -1,0 +1,18 @@
+{
+    "id": "role.system",
+    "type": "role",
+    "title": "System",
+    "remarks": "Die Rolle \"System\" wird für systemrelevante Objekte verwendet (insbesondere für die Definition bestimmter Typen wie \"Benutzer\" oder \"Rolle\"), die auch mit Administrator-Rechten nicht verändert werden dürfen, um ein stabiles System zu gewährleisten.",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "system",
+        "name": "System",
+        "defaultaccessibility": "writable",
+        "changeOwnPassword": true,
+        "resetOtherUsers": true
+    }
+}

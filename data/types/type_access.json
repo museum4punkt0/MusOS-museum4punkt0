@@ -1,0 +1,57 @@
+{
+    "id": "type.access",
+    "type": "type",
+    "title": "Zugriff",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "access",
+        "name": "Zugriff",
+        "parent": "",
+        "internal": true,
+        "titlefields": ["accessibility"],
+        "tablefields": ["accessibility"],
+        "placeholderurl": "placeholders/access.svg",
+        "iconurl": "icons/material/baseline/baseline-lock_open-24px.svg",
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "access",
+                    "name": "Zugriff",
+                    "fields": [
+                        {
+                            "id": "accessibility",
+                            "name": "allgemeines Zugriffslevel",
+                            "type": "select",
+                            "options": [null, "hidden", "readonly", "writable"],
+                            "translations": {
+                                "hidden": {"de": "unsichtbar"},
+                                "readonly": {"de": "schreibgeschützt"},
+                                "writeable": {"de": "bearbeitbar"}
+                            },
+                            "mandatory": false,
+                            "tooltip": "Zugriffslevel für Standardnutzer und Administratoren (andere Nutzergruppen unterliegen weiteren Einschränkungen)"
+                        },
+                        {
+                            "id": "readableFor",
+                            "name": "zusätzlich lesbar für",
+                            "type": "reference",
+                            "reftypes": ["role"],
+                            "tooltip": "Ausnahmen haben Vorrang sowohl vor allgemeinem Zugriffslevel (siehe oben) als auch vor Standard-Zugriffslevel des Nutzers"
+                        },
+                        {
+                            "id": "writableFor",
+                            "name": "zusätzlich modifizierbar für",
+                            "type": "reference",
+                            "reftypes": ["role"],
+                            "tooltip": "Ausnahmen haben Vorrang sowohl vor allgemeinem Zugriffslevel (siehe oben) als auch vor Standard-Zugriffslevel des Nutzers"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

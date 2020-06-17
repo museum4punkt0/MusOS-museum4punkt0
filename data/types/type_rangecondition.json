@@ -1,0 +1,63 @@
+{
+    "id": "type.rangecondition",
+    "type": "type",
+    "title": "Wertebereich",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "rangecondition",
+        "name": "Wertebereich",
+        "parent": "condition",
+        "internal": true,
+        "titlefields": ["property.name", {"switch": "inverse", "case true": "nicht"}, "min", {"text": "bis"}, "max"],
+        "tablefields": ["#title"],
+        "iconurl": "icons/mdi/code-not-equal-variant.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.scenography"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "condition",
+                    "name": "Bedingung",
+                    "fields": [
+                        {
+                            "id": "property",
+                            "name": "Eigenschaft",
+                            "type": "reference",
+                            "reftypes": ["stateproperty"],
+                            "quantity": "single",
+                            "mandatory": true
+                        },
+                        {
+                            "id": "min",
+                            "name": "mindestens",
+                            "type": "number"
+                        },
+                        {
+                            "id": "max",
+                            "name": "höchstens",
+                            "type": "number"
+                        },
+                        {
+                            "id": "inverse",
+                            "name": "invers",
+                            "type": "bool",
+                            "default": false,
+                            "tooltip": "falls besagte Eigenschaft NICHT im angegebenen Wertebereich sein soll"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

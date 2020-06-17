@@ -1,0 +1,80 @@
+{
+    "id": "type.menuobjectselection",
+    "type": "type",
+    "title": "Objektauswahl",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "menuobjectselection",
+        "name": "Objektauswahl",
+        "parent": "menuwidget",
+        "internal": true,
+        "titlefields": ["items.#title"],
+        "tablefields": ["#title"],
+        "iconurl": "icons/mdi/view-list.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.scenography", "role.designer"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "definition",
+                    "name": "Definition",
+                    "fields": [
+                        {
+                            "id": "orientation",
+                            "name": "Ausrichtung",
+                            "type": "select",
+                            "options": ["vertical", "horizontal"],
+                            "translations": {
+                                "vertical": {"de": "vertikal"},
+                                "horizontal": {"de": "horizontal"}
+                            },
+                            "default": "vertical"
+                        },
+                        {
+                            "id": "items",
+                            "name": "Objekte",
+                            "type": "reference",
+                            "reftypes": ["exhibit"]
+                        },
+                        {
+                            "id": "imagetags",
+                            "name": "Bild-Tags",
+                            "type": "textarray"
+                        },
+                        {
+                            "id": "operation",
+                            "name": "Operation",
+                            "type": "select",
+                            "options": ["none", "replace", "append", "insert", "draganddrop"],
+                            "translations": {
+                                "none": {"de": "keine"},
+                                "replace": {"de": "ersetzen"},
+                                "append": {"de": "anhängen"},
+                                "insert": {"de": "einfügen"},
+                                "draganddrop": {"de": "drag & drop"}
+                            },
+                            "default": "replace"
+                        },
+                        {
+                            "id": "actions",
+                            "name": "Aktionen",
+                            "type": "element",
+                            "reftypes": ["sceneaction", "generalaction", "conditionalaction", "caseaction"]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

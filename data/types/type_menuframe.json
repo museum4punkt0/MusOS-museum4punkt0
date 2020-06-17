@@ -1,0 +1,172 @@
+{
+    "id": "type.menuframe",
+    "type": "type",
+    "title": "Menürahmen",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "menuframe",
+        "name": "Menürahmen",
+        "parent": "",
+        "titlefields": ["name"],
+        "tablefields": ["name"],
+        "placeholderurl": "placeholders/touchapp.svg",
+        "iconurl": "icons/material/baseline/baseline-touch_app-24px.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.scenography", "role.designer"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "definition",
+                    "name": "Definition",
+                    "fields": [
+                        {
+                            "id": "name",
+                            "name": "Name",
+                            "type": "text"
+                        },
+                        {
+                            "id": "visibility",
+                            "name": "Sichtbarkeit",
+                            "type": "select",
+                            "options": ["arbitrary", "chatonly", "contentonly", "mediaonly", "slidesonly", "htmlonly"],
+                            "translations": {
+                                "arbitrary": {"de": "beliebig"},
+                                "chatonly": {"de": "nur im Chat"},
+                                "contentonly": {"de": "nur auf Inhalten"},
+                                "mediaonly": {"de": "nur auf Medien"},
+                                "slidesonly": {"de": "nur auf Folien"},
+                                "htmlonly": {"de": "nur auf HTML"}
+                            },
+                            "default": "arbitrary"
+                        },
+                        {
+                            "id": "display",
+                            "name": "Anzeige",
+                            "type": "select",
+                            "options": ["undefined", "above", "sidewards"],
+                            "translations": {
+                                "undefined": {"de": "undefiniert"},
+                                "above": {"de": "schwebend"},
+                                "sidewards": {"de": "seitlich"}
+                            },
+                            "default": "undefined"
+                        },
+                        {
+                            "id": "position",
+                            "name": "Position",
+                            "type": "select",
+                            "options": ["undefined", "left", "right", "top", "bottom", "top-left", "top-center", "top-right", "middle-left", "middle-center", "middle-right", "bottom-left", "bottom-center", "bottom-right", "full"],
+                            "translations": {
+                                "undefined": {"de": "undefiniert"},
+                                "left": {"de": "links"},
+                                "right": {"de": "rechts"},
+                                "top": {"de": "oben"},
+                                "bottom": {"de": "unten"},
+                                "top-left": {"de": "oben links"},
+                                "top-center": {"de": "oben zentriert"},
+                                "top-right": {"de": "oben rechts"},
+                                "middle-left": {"de": "mittig links"},
+                                "middle-center": {"de": "mittig zentriert"},
+                                "middle-right": {"de": "mittig rechts"},
+                                "bottom-left": {"de": "unten links"},
+                                "bottom-center": {"de": "unten zentriert"},
+                                "bottom-right": {"de": "unten rechts"},
+                                "full": {"de": "vollflächig"}
+                            },
+                            "default": "undefined"
+                        },
+                        {
+                            "id": "orientation",
+                            "name": "Ausrichtung",
+                            "type": "select",
+                            "options": ["vertical", "horizontal"],
+                            "translations": {
+                                "vertical": {"de": "vertikal"},
+                                "horizontal": {"de": "horizontal"}
+                            },
+                            "default": "vertical"
+                        },
+                        {
+                            "id": "items",
+                            "name": "Einträge",
+                            "type": "element",
+                            "reftypes": ["menuwidget"]
+                        }
+                    ]
+                },
+                {
+                    "id": "settings",
+                    "name": "Einstellungen",
+                    "fields": [
+                        {
+                            "id": "autohide",
+                            "name": "automatisches Ausblenden",
+                            "type": "bool",
+                            "default": false
+                        },
+                        {
+                            "id": "animation",
+                            "name": "Animation",
+                            "type": "select",
+                            "options": ["none", "left", "right", "up", "down"],
+                            "translations": {
+                                "none": {"de": "keine"},
+                                "left": {"de": "von rechts nach links"},
+                                "right": {"de": "von links nach rechts"},
+                                "up": {"de": "von unten nach oben"},
+                                "down": {"de": "von oben nach unten"}
+                            },
+                            "default": "none"
+                        },
+                        {
+                            "id": "additionalactions",
+                            "name": "zusätzliche Aktionen",
+                            "type": "element",
+                            "reftypes": ["sceneaction", "generalaction", "conditionalaction", "caseaction"],
+                            "tooltip": "wird bei jeder Menüaktion zusätzlich ausgeführt"
+                        }
+                    ]
+                },
+                {
+                    "id": "commands",
+                    "name": "Befehle",
+                    "fields": [
+                        {
+                            "id": "testboxname",
+                            "name": "CBox-Name / Channel-ID",
+                            "type": "text",
+                            "transient": true
+                        },
+                        {
+                            "id": "testslot",
+                            "name": "Slot",
+                            "type": "select",
+                            "options": ["A", "B"],
+                            "mandatory": true,
+                            "default": "A"
+                        },
+                        {
+                            "id": "showmenucommand",
+                            "name": "Anzeigen",
+                            "type": "command",
+                            "resturl": "/changemenu/<testslot>?boxorchannel=<testboxname>",
+                            "restmethod": "POST",
+                            "body": "this"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,114 @@
+{
+    "id": "type.menuaction",
+    "type": "type",
+    "title": "Menüanzeige",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "menuaction",
+        "name": "Menüanzeige",
+        "parent": "generalaction",
+        "internal": true,
+        "titlefields": ["menu.name", {"text": "Slot"}, "slot"],
+        "tablefields": ["active", "start", "delay", "duration", "menu.name", "slot"],
+        "iconurl": "icons/material/baseline/baseline-touch_app-24px.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.scenography"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "content",
+                    "name": "Inhalt",
+                    "fields": [
+                        {
+                            "id": "active",
+                            "name": "aktiv",
+                            "type": "bool",
+                            "default": true
+                        },
+                        {
+                            "id": "slot",
+                            "name": "Slot",
+                            "type": "select",
+                            "options": ["A", "B"],
+                            "mandatory": true,
+                            "default": "A"
+                        },
+                        {
+                            "id": "menu",
+                            "name": "Menü",
+                            "type": "reference",
+                            "reftypes": ["menuframe"],
+                            "quantity": "single",
+                            "mandatory": false
+                        },
+                        {
+                            "id": "hidden",
+                            "name": "verborgen",
+                            "type": "bool"
+                        }
+                    ]
+                },
+                {
+                    "id": "timing",
+                    "name": "Timing",
+                    "joinsidebar": "content",
+                    "fields": [
+                        {
+                            "id": "start",
+                            "name": "Start",
+                            "type": "select",
+                            "options": ["initially", "withprevious", "afterprevious"],
+                            "translations": {
+                                "initially": {"de": "anfangs"},
+                                "withprevious": {"de": "mit vorigem"},
+                                "afterprevious": {"de": "nach vorigem"}
+                            },
+                            "default": "afterprevious"
+                        },
+                        {
+                            "id": "delay",
+                            "name": "Verzögerung",
+                            "type": "float",
+                            "suffixes": ["s", "ms", "min"],
+                            "defaultsuffix": "s",
+                            "default": 0
+                        },
+                        {
+                            "id": "duration",
+                            "name": "Dauer",
+                            "type": "float",
+                            "suffixes": ["s", "ms", "min"],
+                            "defaultsuffix": "s",
+                            "default": 0
+                        }
+                    ]
+                },
+                {
+                    "id": "additional",
+                    "name": "zusätzlich",
+                    "joinsidebar": "content",
+                    "fields": [
+                        {
+                            "id": "target",
+                            "name": "Zielgerät",
+                            "type": "reference",
+                            "reftypes": ["cbox", "channel"],
+                            "tooltip": "Zielgerät für dieses Menü, nur anzugeben, wenn abweichend vom Standard-Zielgerät der Szene, mehrere Zielgeräte möglich"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

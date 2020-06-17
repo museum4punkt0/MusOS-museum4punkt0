@@ -1,0 +1,60 @@
+{
+    "id": "type.interactioncase",
+    "type": "type",
+    "title": "Option",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "interactioncase",
+        "name": "Option",
+        "parent": "",
+        "internal": true,
+        "titlefields": ["answer"],
+        "tablefields": ["answer", "reactions"],
+        "iconurl": "icons/mdi/radiobox-marked.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.scenography"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "general",
+                    "name": "Allgemein",
+                    "fields": [
+                        {
+                            "id": "answer",
+                            "name": "Antwort",
+                            "type": "text",
+                            "mandatory": true,
+                            "localizable": true,
+                            "tooltip": "Text, der im Chat als Antwortmöglichkeit angezeigt wird"
+                        },
+                        {
+                            "id": "reactions",
+                            "name": "Reaktionen",
+                            "type": "element",
+                            "reftypes": ["sceneaction", "generalaction", "conditionalaction", "caseaction"],
+                            "tooltip": "Reaktionen auf diese Antwort"
+                        },
+                        {
+                            "id": "conditions",
+                            "name": "nur anzeigen, wenn",
+                            "type": "element",
+                            "reftypes": ["condition"],
+                            "tooltip": "sämtliche angegebene Bedingungen müssen erfüllt sein, leer für bedingungslose Anzeige"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

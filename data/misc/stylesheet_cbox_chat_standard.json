@@ -1,0 +1,15 @@
+{
+    "__preserve": true,
+    "id": "stylesheet.cbox-chat-standard",
+    "type": "stylesheet",
+    "title": "CBox Chat Standard",
+    "objectaccess": {
+        "accessibility": "readonly",
+        "writableFor": ["role.admin"]
+    },
+    "fields": {
+        "category": "chat",
+        "name": "CBox Chat Standard",
+        "definition": ":root {\n  --own-message-bg-color: #00d4c288;\n  --own-message-color: #fff;\n  --foreign-message-bg-color: #b0c5c5de;\n  --foreign-message-color: #444;\n  --button-hover-color: #00d4c2cc;\n  --button-color: #00d4c288;\n}\n\n@font-face {\n    font-family: Roboto-Regular;\n    src: url(/fonts/Sans/Roboto/Roboto-Regular.ttf);\n}\n\n.screen {\n    font-family: Roboto-Regular, sans-serif;\n    font-size: 24pt;\n    color: #fff;\n    margin: 12pt;\n}\n\n.screen .title {\n    font-family: Roboto-Regular, sans-serif;\n    font-size: 48pt;\n    color: #fff;\n    text-align: center;\n    margin: 0;\n    padding-top: 24pt;\n    padding-bottom: 12pt;\n}\n\n.screen .imageA {\n    height: 25%;\n}\n\n.screen .chat {\n    height: 100%;\n    overflow-y: hidden;\n}\n\n.ownChatMessage {\n    font-size: 16pt;\n    color: var(--own-message-color);\n    background-color: var(--own-message-bg-color);\n}\n\n.arrowRight {\n    border-left-color: var(--own-message-bg-color);\n}\n\n.button {\n    color: var(--own-message-color);\n    background-color: var(--button-color);\n    border-color: #fff;\n    border-radius: 13px;\n    border: none;\n}\n\n.button:hover {\n   background-color: var(--button-hover-color);\n}\n\n.foreignChatMessage {\n    font-size: 16pt;\n    color: var(--foreign-message-color);\n    background-color: var(--foreign-message-bg-color);\n    border-radius: 15px;\n    padding: 20px;\n    margin-right: 20%;\n}\n\n.arrowLeft {\n    border-right-color: var(--foreign-message-bg-color);\n}"
+    }
+}

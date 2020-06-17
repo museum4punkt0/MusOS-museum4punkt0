@@ -1,0 +1,36 @@
+version: '3.5'
+services:
+ <productid>_server_<customerid>:
+  container_name: "<productid>_server_<customerid>"
+  restart: "<restart>"
+  build: ./modules
+  image: <productid>_server_<customerid>_image
+  ports:
+   - <webserverport>:4000
+  volumes:
+   - ./modules:/app
+   - ./data/public:/appdata/public # public folder contains web client
+   - ./data/usercontent:/var/usercontent # for customer data (might be an FTP folder)
+   - ./data/uploads:/var/uploads
+   - ./data/media:/var/media
+   - ./data/serverlog:/var/log/<productid>
+   - /etc/localtime:/etc/localtime:ro # share local time with container (read-only)
+  environment:
+   - ENV=<environment> # productive or development
+   - PORT=4000
+   - DB=mongodb://root:<mongodbrootpassword>@<productid>_mongodb_<customerid>:27017/<databasename>?authSource=admin
+   - JSON_WEB_TOKEN_SECRET_KEY=<webtokensecretkey>
+   - SERVERLOG_PATH=/var/log/<productid>
+ <productid>_mongodb_<customerid>:
+  image: mongo:latest
+  container_name: "<productid>_mongodb_<customerid>"
+  restart: "<restart>"
+  environment:
+   - MONGO_INITDB_ROOT_USERNAME=root
+   - MONGO_INITDB_ROOT_PASSWORD=<mongodbrootpassword>
+  volumes:
+   - ./data/db:/data/db
+   - ./data/dblog:/var/log/mongodb
+  ports:
+   - <databaseport>:27017
+  command: mongod --logpath=/var/log/mongodb/log.txt # --quiet

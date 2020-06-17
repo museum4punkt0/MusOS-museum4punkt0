@@ -1,0 +1,237 @@
+{
+    "id": "type.configuration",
+    "type": "type",
+    "title": "Konfiguration",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "configuration",
+        "name": "Konfiguration",
+        "parent": "",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "readonly",
+                    "readableFor": ["role.any"],
+                    "writableFor": ["role.admin"]
+                }
+            }
+        ],
+        "titlefields": [],
+        "tablefields": [],
+        "iconurl": "icons/mdi/settings.svg",
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "languageConfig",
+                    "name": "Sprachen",
+                    "fields": [
+                        {
+                            "id": "supportedLanguages",
+                            "name": "Sprachen",
+                            "type": "textarray"
+                        },
+                        {
+                            "id": "defaultLanguage",
+                            "name": "Standardsprache",
+                            "type": "text"
+                        },
+                        {
+                            "id": "fallbackLanguages",
+                            "name": "Ausweichreihenfolge",
+                            "type": "textarray"
+                        },
+                        {
+                            "id": "languageVisualization",
+                            "name": "Visualisierung",
+                            "type": "select",
+                            "options": ["flag", "code"],
+                            "translations": {
+                                "flag": {"de": "Flagge"},
+                                "code": {"de": "Kürzel"}
+                            },
+                            "default": "flag"
+                        }
+                    ]
+                },
+                {
+                    "id": "connections",
+                    "name": "Anbindung",
+                    "fieldsets": [
+                        {
+                            "id": "email",
+                            "name": "E-Mail",
+                            "fields": [
+                                {
+                                    "id": "smtpServer",
+                                    "name": "SMTP-Server",
+                                    "type": "text"
+                                },
+                                {
+                                    "id": "smtpPort",
+                                    "name": "SMTP-Port",
+                                    "type": "int",
+                                    "note": "falls abweichend vom Standardport"
+                                },
+                                {
+                                    "id": "smtpSecurity",
+                                    "name": "Sicherheit",
+                                    "type": "select",
+                                    "options": ["ssl", "starttls"],
+                                    "translations": {
+                                        "ssl": {"de": "SSL/TLS"},
+                                        "starttls": {"de": "STARTTLS"}
+                                    }
+                                },
+                                {
+                                    "id": "smtpUsername",
+                                    "name": "Benutzername",
+                                    "type": "text"
+                                },
+                                {
+                                    "id": "smtpPassword",
+                                    "name": "Passwort",
+                                    "type": "password"
+                                },
+                                {
+                                    "id": "smtpSender",
+                                    "name": "Absender-Adresse",
+                                    "type": "text",
+                                    "note": "einige SMTP-Server füllen die Absender-E-Mail-Adresse automatisch aus"
+                                },
+                                {
+                                    "id": "adminEmailAddress",
+                                    "name": "E-Mail-Adresse für Administrationszwecke",
+                                    "type": "text",
+                                    "note": "an diese E-Mail-Adresse werden bestimmte System-E-Mails versendet"
+                                },
+                                {
+                                    "id": "sendtesttextmailcommand",
+                                    "name": "Text-Mail testweise senden",
+                                    "type": "command",
+                                    "resturl": "/test/sendmail",
+                                    "restmethod": "GET"
+                                },
+                                {
+                                    "id": "sendtesttextmailwithattachmentcommand",
+                                    "name": "Text-Mail mit Anhang testweise senden",
+                                    "type": "command",
+                                    "resturl": "/test/sendmail?attach=latestmediaitem",
+                                    "restmethod": "GET"
+                                },
+                                {
+                                    "id": "sendtesthtmlmailcommand",
+                                    "name": "HTML-Mail testweise senden",
+                                    "type": "command",
+                                    "resturl": "/test/sendmail?type=html",
+                                    "restmethod": "GET"
+                                },
+                                {
+                                    "id": "sendtesthtmlmailwithattachmentcommand",
+                                    "name": "HTML-Mail mit Anhang testweise senden",
+                                    "type": "command",
+                                    "resturl": "/test/sendmail?type=html&attach=latestmediaitem",
+                                    "restmethod": "GET"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "homepage",
+                            "name": "Webseite",
+                            "fields": [
+                                {
+                                    "id": "wpuser",
+                                    "name": "Benutzer",
+                                    "type": "text"
+                                },
+                                {
+                                    "id": "wppassword",
+                                    "name": "Passwort",
+                                    "type": "password"
+                                },
+                                {
+                                    "id": "wpserver",
+                                    "name": "Server URL",
+                                    "type": "text"
+                                },
+                                {
+                                    "id": "wpjwt",
+                                    "name": "Use JWT",
+                                    "type": "checkbox"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "misc",
+                    "name": "Sonstiges",
+                    "fieldsets": [
+                        {
+                            "id": "recylebin",
+                            "name": "Papierkorb",
+                            "fields": [
+                                {
+                                    "id": "recylebinAutocleanInterval",
+                                    "name": "automatisch leeren nach",
+                                    "type": "float",
+                                    "suffixes": ["h", "d"],
+                                    "defaultsuffix": "d",
+                                    "default": 28
+                                }
+                            ]
+                        },
+                        {
+                            "id": "logging",
+                            "name": "Logging",
+                            "fields": [
+                                {
+                                    "id": "logReduxActions",
+                                    "name": "Aktionen",
+                                    "type": "checkbox",
+                                    "default": false
+                                },
+                                {
+                                    "id": "logReduxState",
+                                    "name": "Status",
+                                    "type": "checkbox",
+                                    "default": false
+                                }
+                            ]
+                        },
+                        {
+                            "id": "parameters",
+                            "name": "Parameter",
+                            "fields": [
+                                {
+                                    "id": "parameters",
+                                    "name": "Parameter",
+                                    "type": "element",
+                                    "reftypes": ["textparameter"]
+                                }
+                            ]
+                        }        
+                    ]
+                },
+                {
+                    "id": "commands",
+                    "name": "Befehle",
+                    "fields": [
+                        {
+                            "id": "rebuildmediainfodatabasecommand",
+                            "name": "Medien-Info-Datenbank neu erstellen",
+                            "type": "command",
+                            "resturl": "/admin/mediainfodatabase/rebuild",
+                            "restmethod": "GET",
+                            "note": "Diese Operation kann abhängig von der Größe der Medienbibliothek mehrere Minuten dauern."
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

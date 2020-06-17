@@ -1,0 +1,53 @@
+{
+    "id": "type.visitortype",
+    "type": "type",
+    "title": "Besuchertyp",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "visitortype",
+        "name": "Besuchertyp",
+        "parent": "",
+        "titlefields": ["name"],
+        "tablefields": ["name"],
+        "placeholderurl": "placeholders/visitortype.svg",
+        "iconurl": "icons/material/baseline/baseline-supervised_user_circle-24px.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.scenography"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "general",
+                    "name": "Allgemein",
+                    "fields": [
+                        {
+                            "id": "name",
+                            "name": "Identifikation",
+                            "type": "text",
+                            "mandatory": true
+                        },
+                        {
+                            "id": "avatar",
+                            "name": "Avatar",
+                            "type": "reference",
+                            "reftypes": ["avatar"],
+                            "quantity": "single",
+                            "mandatory": true,
+                            "tooltip": "standardmäßiger Begleiter für diesen Besuchertyp"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

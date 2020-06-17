@@ -1,0 +1,51 @@
+{
+    "id": "type.avatar",
+    "type": "type",
+    "title": "Avatar",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "avatar",
+        "name": "Avatar",
+        "parent": "",
+        "titlefields": ["name"],
+        "tablefields": ["#imageurl", "name"],
+        "placeholderurl": "placeholders/face.svg",
+        "iconurl": "icons/material/baseline/baseline-face-24px.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.scenography"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "general",
+                    "name": "Allgemein",
+                    "fields": [
+                        {
+                            "id": "name",
+                            "name": "Name",
+                            "type": "text",
+                            "mandatory": true
+                        },
+                        {
+                            "id": "medialist",
+                            "name": "Bild",
+                            "type": "medialist",
+                            "quantity": "single",
+                            "mandatory": true
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

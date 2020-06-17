@@ -1,0 +1,12 @@
+{
+    "id": "textslide.F923C5D2-85CA-4B98-8112-9F268C9A85EA",
+    "type": "textslide",
+    "title": "Testfolie",
+    "fields": {
+        "style": [ 
+            "stylesheet.standard-center-white"
+        ],
+        "text": "Inhalt\n------\n\n**Lorem ipsum** dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et *dolore magna* aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nPunkte\n----\n\n* Punkt 1\n* Punkt 2\n* Punkt 3\n",
+        "title": "Testfolie"
+    }
+}

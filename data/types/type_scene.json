@@ -1,0 +1,94 @@
+{
+    "id": "type.scene",
+    "type": "type",
+    "title": "Szene",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "scene",
+        "name": "Szene",
+        "parent": "",
+        "titlefields": ["name"],
+        "tablefields": ["category", "name"],
+        "placeholderurl": "placeholders/scene.svg",
+        "iconurl": "icons/material/baseline/baseline-movie-24px.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.scenography"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "general",
+                    "name": "Ablauf",
+                    "fields": [
+                        {
+                            "id": "category",
+                            "name": "Station",
+                            "type": "text"
+                        },
+                        {
+                            "id": "name",
+                            "name": "Name der Szene",
+                            "type": "text"
+                        },
+                        {
+                            "id": "actions",
+                            "name": "Aktionen",
+                            "type": "element",
+                            "reftypes": ["sceneaction", "generalaction", "interaction", "conditionalaction", "caseaction"]
+                        },
+                        {
+                            "id": "target",
+                            "name": "Zielgerät",
+                            "type": "reference",
+                            "reftypes": ["cbox", "channel"],
+                            "tooltip": "Zielgerät für diese Szene, nur anzugeben, wenn abweichend vom Standard-Zielgerät der Story, mehrere Zielgeräte möglich"
+                        }
+                    ]
+                },
+                {
+                    "id": "commands",
+                    "name": "Befehle",
+                    "fields": [
+                        {
+                            "id": "testboxname",
+                            "name": "CBox-Name / Channel-ID",
+                            "type": "text",
+                            "transient": true
+                        },
+                        {
+                            "id": "testvisitortype",
+                            "name": "Besuchertyp",
+                            "type": "text",
+                            "transient": true
+                        },
+                        {
+                            "id": "playscenecommand",
+                            "name": "Abspielen",
+                            "type": "command",
+                            "resturl": "/play/scene?boxorchannel=<testboxname>&visitortype=<testvisitortype>",
+                            "restmethod": "POST",
+                            "body": "this"
+                        },
+                        {
+                            "id": "scenescript",
+                            "name": "JavaScript zum Aktivieren der Szene",
+                            "type": "label",
+                            "style": "code",
+                            "value": "fetch('/play/scene/<#id>')"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

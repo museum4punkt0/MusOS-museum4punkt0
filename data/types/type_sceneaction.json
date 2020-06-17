@@ -1,0 +1,100 @@
+{
+    "id": "type.sceneaction",
+    "type": "type",
+    "title": "Szenenwechsel",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "sceneaction",
+        "name": "Szenenwechsel",
+        "parent": "specialaction",
+        "internal": true,
+        "titlefields": ["scene.name"],
+        "tablefields": ["active", "start", "delay", "duration", "scene.name"],
+        "iconurl": "icons/material/baseline/baseline-movie-24px.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.scenography"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "content",
+                    "name": "Inhalt",
+                    "fields": [
+                        {
+                            "id": "active",
+                            "name": "aktiv",
+                            "type": "bool",
+                            "default": true
+                        },
+                        {
+                            "id": "scene",
+                            "name": "Szene",
+                            "type": "reference",
+                            "reftypes": ["scene"],
+                            "quantity": "single"
+                        }
+                    ]
+                },
+                {
+                    "id": "timing",
+                    "name": "Timing",
+                    "joinsidebar": "content",
+                    "fields": [
+                        {
+                            "id": "start",
+                            "name": "Start",
+                            "type": "select",
+                            "options": ["initially", "withprevious", "afterprevious"],
+                            "translations": {
+                                "initially": {"de": "anfangs"},
+                                "withprevious": {"de": "mit vorigem"},
+                                "afterprevious": {"de": "nach vorigem"}
+                            },
+                            "default": "afterprevious"
+                        },
+                        {
+                            "id": "delay",
+                            "name": "Verzögerung",
+                            "type": "float",
+                            "suffixes": ["s", "ms", "min"],
+                            "defaultsuffix": "s",
+                            "default": 0
+                        },
+                        {
+                            "id": "duration",
+                            "name": "Dauer",
+                            "type": "float",
+                            "suffixes": ["s", "ms", "min"],
+                            "defaultsuffix": "s",
+                            "default": 0
+                        }
+                    ]
+                },
+                {
+                    "id": "additional",
+                    "name": "zusätzlich",
+                    "joinsidebar": "content",
+                    "fields": [
+                        {
+                            "id": "target",
+                            "name": "Zielgerät",
+                            "type": "reference",
+                            "reftypes": ["cbox", "channel"],
+                            "tooltip": "Zielgerät für diese Szene, nur anzugeben, wenn abweichend vom Standard-Zielgerät der übergeordneten Szene, mehrere Zielgeräte möglich"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

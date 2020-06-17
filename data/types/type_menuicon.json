@@ -1,0 +1,50 @@
+{
+    "id": "type.menuicon",
+    "type": "type",
+    "title": "Icon",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "menuicon",
+        "name": "Icon",
+        "parent": "menuwidget",
+        "internal": true,
+        "titlefields": ["iconurl"],
+        "tablefields": ["iconurl", "actions"],
+        "iconurl": "icons/mdi/circle-outline.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.scenography", "role.designer"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "definition",
+                    "name": "Definition",
+                    "fields": [
+                        {
+                            "id": "iconurl",
+                            "name": "Icon-URL",
+                            "type": "mediaurl",
+                            "maxlength": 500
+                        },
+                        {
+                            "id": "actions",
+                            "name": "Aktionen",
+                            "type": "element",
+                            "reftypes": ["sceneaction", "generalaction", "conditionalaction", "caseaction"]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

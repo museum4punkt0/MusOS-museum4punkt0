@@ -1,0 +1,58 @@
+{
+    "id": "type.usersettings",
+    "type": "type",
+    "title": "Einstellungen",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "usersettings",
+        "name": "Einstellungen",
+        "parent": "",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "hidden",
+                    "writableFor": ["role.admin"]
+                }
+            }
+        ],
+        "creatableFor": ["role.any"],
+        "titlefields": [],
+        "tablefields": ["#title"],
+        "iconurl": "icons/mdi/settings.svg",
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "view",
+                    "name": "Ansicht",
+                    "fields": [
+                        {
+                            "id": "listRepresentation-general",
+                            "name": "generelle Listen-Darstellung",
+                            "type": "select",
+                            "options": ["grid", "table"],
+                            "translations": {
+                                "grid": {"de": "Gitter"},
+                                "table": {"de": "Tabelle"}
+                            }
+                        },
+                        {
+                            "id": "listRepresentation-selection",
+                            "name": "Listen-Darstellung für Auswahl",
+                            "type": "select",
+                            "options": ["grid", "table"],
+                            "translations": {
+                                "grid": {"de": "Gitter"},
+                                "table": {"de": "Tabelle"}
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

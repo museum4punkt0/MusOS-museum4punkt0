@@ -1,0 +1,109 @@
+{
+    "id": "type.mediaaction",
+    "type": "type",
+    "title": "Medienwiedergabe",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "mediaaction",
+        "name": "Medienwiedergabe",
+        "parent": "generalaction",
+        "internal": true,
+        "titlefields": ["medialist.title"],
+        "tablefields": ["active", "start", "delay", "duration", "medialist.title", "target.name"],
+        "iconurl": "icons/mdi/play-box-outline.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.scenography"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "content",
+                    "name": "Inhalt",
+                    "fields": [
+                        {
+                            "id": "active",
+                            "name": "aktiv",
+                            "type": "bool",
+                            "default": true
+                        },
+                        {
+                            "id": "medialist",
+                            "name": "Medien",
+                            "type": "medialist",
+                            "quantity": "single"
+                        },
+                        {
+                            "id": "loop",
+                            "name": "wiederholen",
+                            "type": "bool"
+                        },
+                        {
+                            "id": "backdrop",
+                            "name": "als Audiokulisse",
+                            "type": "bool"
+                        }
+                    ]
+                },
+                {
+                    "id": "timing",
+                    "name": "Timing",
+                    "joinsidebar": "content",
+                    "fields": [
+                        {
+                            "id": "start",
+                            "name": "Start",
+                            "type": "select",
+                            "options": ["initially", "withprevious", "afterprevious"],
+                            "translations": {
+                                "initially": {"de": "anfangs"},
+                                "withprevious": {"de": "mit vorigem"},
+                                "afterprevious": {"de": "nach vorigem"}
+                            },
+                            "default": "afterprevious"
+                        },
+                        {
+                            "id": "delay",
+                            "name": "Verzögerung",
+                            "type": "float",
+                            "suffixes": ["s", "ms", "min"],
+                            "defaultsuffix": "s",
+                            "default": 0
+                        },
+                        {
+                            "id": "duration",
+                            "name": "Dauer",
+                            "type": "float",
+                            "suffixes": ["s", "ms", "min"],
+                            "defaultsuffix": "s",
+                            "default": 0
+                        }
+                    ]
+                },
+                {
+                    "id": "additional",
+                    "name": "zusätzlich",
+                    "joinsidebar": "content",
+                    "fields": [
+                        {
+                            "id": "target",
+                            "name": "Zielgerät",
+                            "type": "reference",
+                            "reftypes": ["cbox", "channel"],
+                            "tooltip": "Zielgerät für diese Wiedergabe, nur anzugeben, wenn abweichend vom Standard-Zielgerät der Szene, mehrere Zielgeräte möglich"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

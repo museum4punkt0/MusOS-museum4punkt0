@@ -1,0 +1,92 @@
+{
+    "id": "type.contact",
+    "type": "type",
+    "title": "Kontakt",
+    "fields": {
+        "id": "contact",
+        "name": "Kontakt",
+        "parent": "",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.curator"]
+                }
+            }
+        ],
+        "titlefields": ["name"],
+        "tablefields": ["name", "city"],
+        "placeholderurl": "placeholders/contact.svg",
+        "iconurl": "icons/material/baseline/baseline-perm_contact_calendar-24px.svg",
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "general",
+                    "name": "Allgemein",
+                    "fields": [
+                        {
+                            "id": "name",
+                            "name": "Name",
+                            "type": "text",
+                            "mandatory": true
+                        },
+                        {
+                            "id": "type",
+                            "name": "Art",
+                            "type": "select",
+                            "options": ["guide", "customer", "supplier", "sponsor", "press", "other"],
+                            "translations": {
+                                "guide": {"de": "Guide"},
+                                "customer": {"de": "Kunde"},
+                                "supplier": {"de": "Lieferant"},
+                                "sponsor": {"de": "Sponsor"},
+                                "press": {"de": "Presse"},
+                                "other": {"de": "andere"}
+                            }
+                        },
+                        {
+                            "id": "address",
+                            "name": "Adresse",
+                            "type": "text",
+                            "mandatory": true
+                        },
+                        {
+                            "id": "city",
+                            "name": "Ort",
+                            "type": "text",
+                            "mandatory": true
+                        },
+                        {
+                            "id": "phone",
+                            "name": "Telefon",
+                            "type": "text"
+                        },
+                        {
+                            "id": "email",
+                            "name": "E-Mail",
+                            "type": "email"
+                        },
+                        {
+                            "id": "contactperson",
+                            "name": "Ansprechpartner",
+                            "type": "Text"
+                        }
+                    ]
+                },
+                {
+                    "id": "notes",
+                    "name": "Notizen",
+                    "fields": [
+                        {
+                            "id": "notes",
+                            "name": "Notizen",
+                            "type": "text",
+                            "maxlength": 2000
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

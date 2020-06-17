@@ -1,0 +1,132 @@
+{
+    "id": "type.type",
+    "type": "type",
+    "title": "Objekttyp",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "type",
+        "name": "Objekttyp",
+        "parent": "",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "hidden",
+                    "writableFor": ["role.admin"]
+                }
+            }
+        ],
+        "titlefields": ["name"],
+        "tablefields": ["id", "name", "parent"],
+        "placeholderurl": "placeholders/code.svg",
+        "iconurl": "icons/material/baseline/baseline-code-24px.svg",
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "general",
+                    "name": "Allgemein",
+                    "fields": [
+                        {
+                            "id": "id",
+                            "name": "Typ-ID",
+                            "type": "text",
+                            "mandatory": true
+                        },
+                        {
+                            "id": "name",
+                            "name": "Name",
+                            "type": "text",
+                            "mandatory": true
+                        },
+                        {
+                            "id": "parent",
+                            "name": "Parent-ID",
+                            "type": "text",
+                            "mandatory": false
+                        },
+                        {
+                            "id": "internal",
+                            "name": "intern",
+                            "type": "bool"
+                        }
+                    ]
+                },
+                {
+                    "id": "definition",
+                    "name": "Definition",
+                    "fields": [
+                        {
+                            "id": "definition",
+                            "name": "Definition",
+                            "type": "typedefinition",
+                            "maxlength": 500000,
+                            "mandatory": true,
+                            "note": "Achtung, unüberlegte Änderungen können den Objekttyp unbrauchbar machen !!!"
+                        }
+                    ]
+                },
+                {
+                    "id": "access",
+                    "name": "Zugriff",
+                    "fields": [
+                        {
+                            "id": "typeaccess",
+                            "name": "Zugriff auf Objekte besagten Typs",
+                            "type": "element",
+                            "reftypes": ["access"],
+                            "quantity": "single"
+                        },
+                        {
+                            "id": "creatableFor",
+                            "name": "zusätzliche Erlaubnis, Objekte zu erzeugen",
+                            "type": "reference",
+                            "reftypes": ["role"],
+                            "tooltip": "Nutzer ohne weitere Rechte können nur selbst erzeugte Objekte besagten Typs einsehen bzw. ändern"
+                        }
+                    ]
+                },
+                {
+                    "id": "presentation",
+                    "name": "Darstellung",
+                    "fields": [
+                        {
+                            "id": "placeholderurl",
+                            "name": "Platzhalter-URL",
+                            "type": "mediaurl",
+                            "maxlength": 500
+                        },
+                        {
+                            "id": "iconurl",
+                            "name": "Icon-URL",
+                            "type": "mediaurl",
+                            "maxlength": 500
+                        },
+                        {
+                            "id": "titlefields",
+                            "name": "Titelfelder",
+                            "type": "textarray",
+                            "mandatory": true
+                        },
+                        {
+                            "id": "tablefields",
+                            "name": "Tabellenfelder",
+                            "type": "textarray",
+                            "mandatory": true
+                        },
+                        {
+                            "id": "websitetemplate",
+                            "name": "Template für die Veröffentlichung auf der Webseite",
+                            "type": "reference",
+                            "reftypes": ["htmltemplate"],
+                            "quantity": "single"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

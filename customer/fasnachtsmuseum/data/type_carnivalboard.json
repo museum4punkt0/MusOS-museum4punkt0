@@ -1,0 +1,82 @@
+{
+    "id": "type.69E9BD00-C15D-4126-8757-D3E0D145395X",
+    "type": "type",
+    "title": "Vorstand",
+    "fields": {
+        "id": "carnivalboard",
+        "name": "Vorstand",
+        "parent": "exhibit",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.office"]
+                }
+            }
+        ],
+        "titlefields": ["name"],
+        "tablefields": ["#imageurl", "name"],
+        "iconurl": "icons/material/baseline/baseline-business_center-24px.svg",
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "docs",
+                    "name": "Dokumente",
+                    "fields": [
+                        {
+                            "id": "name",
+                            "name": "Bezeichnung",
+                            "type": "text",
+                            "maxlength": "50",
+                            "mandatory": "true",
+                            "localizable": "false",
+                            "istitle": "true"
+                        },
+                        {
+                            "id": "subcategory",
+                            "name": "Unterkategorie",
+                            "type": "select",
+                            "options": [
+                                "Protkolle",
+                                "Museum 2020",
+                                "Museum4punkt0",
+                                "Sonstige"
+                            ]
+                        },
+                        {
+                            "id": "protocollist",
+                            "name": "Protokolle",
+                            "type": "medialist",
+                            "mandatory": "false",
+                            "localizable": "false"
+                        },
+                        {
+                            "id": "protocoldescription",
+                            "name": "Beschreibung",
+                            "type": "text",
+                            "maxlength": "5000",
+                            "mandatory": "false",
+                            "localizable": "false"
+                        },
+                        {
+                            "id": "imagemodifier",
+                            "name": "Hochgeladen von",
+                            "type": "text",
+                            "maxlength": "100",
+                            "mandatory": "false",
+                            "localizable": "false"
+                        },
+                        {
+                            "id": "modifydate",
+                            "name": "Upload-Datum",
+                            "type": "date",
+                            "mandatory": "false",
+                            "localizable": "false"
+                        }
+                    ]
+                }
+        ]
+        }
+    }
+}

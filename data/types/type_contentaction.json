@@ -1,0 +1,113 @@
+{
+    "id": "type.contentaction",
+    "type": "type",
+    "title": "Content-Anzeige",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "contentaction",
+        "name": "Content-Anzeige",
+        "parent": "generalaction",
+        "internal": true,
+        "titlefields": ["content.#title"],
+        "tablefields": ["active", "start", "delay", "duration", "content.#title"],
+        "iconurl": "icons/mdi/file-document-box-outline.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.scenography"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "content",
+                    "name": "Inhalt",
+                    "fields": [
+                        {
+                            "id": "active",
+                            "name": "aktiv",
+                            "type": "bool",
+                            "default": true
+                        },
+                        {
+                            "id": "content",
+                            "name": "Inhalt",
+                            "type": "reference",
+                            "reftypes": ["content"],
+                            "quantity": "single"
+                        }
+                    ]
+                },
+                {
+                    "id": "context",
+                    "name": "Kontext",
+                    "fields": [
+                        {
+                            "id": "subjects",
+                            "name": "Gegenstand",
+                            "type": "reference",
+                            "preference": "selection",
+                            "reftypes": ["exhibit"]
+                        }
+                    ]
+                },
+                {
+                    "id": "timing",
+                    "name": "Timing",
+                    "joinsidebar": "content",
+                    "fields": [
+                        {
+                            "id": "start",
+                            "name": "Start",
+                            "type": "select",
+                            "options": ["initially", "withprevious", "afterprevious"],
+                            "translations": {
+                                "initially": {"de": "anfangs"},
+                                "withprevious": {"de": "mit vorigem"},
+                                "afterprevious": {"de": "nach vorigem"}
+                            },
+                            "default": "afterprevious"
+                        },
+                        {
+                            "id": "delay",
+                            "name": "Verzögerung",
+                            "type": "float",
+                            "suffixes": ["s", "ms", "min"],
+                            "defaultsuffix": "s",
+                            "default": 0
+                        },
+                        {
+                            "id": "duration",
+                            "name": "Dauer",
+                            "type": "float",
+                            "suffixes": ["s", "ms", "min"],
+                            "defaultsuffix": "s",
+                            "default": 0
+                        }
+                    ]
+                },
+                {
+                    "id": "additional",
+                    "name": "zusätzlich",
+                    "joinsidebar": "content",
+                    "fields": [
+                        {
+                            "id": "target",
+                            "name": "Zielgerät",
+                            "type": "reference",
+                            "reftypes": ["cbox", "channel"],
+                            "tooltip": "Zielgerät für diese Anzeige, nur anzugeben, wenn abweichend vom Standard-Zielgerät der Szene, mehrere Zielgeräte möglich"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

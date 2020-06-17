@@ -1,0 +1,76 @@
+{
+    "id": "type.htmlcontent",
+    "type": "type",
+    "title": "HTML-Content",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "htmlcontent",
+        "name": "HTML-Content",
+        "parent": "content",
+        "titlefields": ["title"],
+        "tablefields": ["title"],
+        "iconurl": "icons/mdi/link.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.office", "role.scenography", "role.designer"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "content",
+                    "name": "Inhalt",
+                    "fields": [
+                        {
+                            "id": "title",
+                            "name": "Titel",
+                            "type": "text"
+                        },
+                        {
+                            "id": "category",
+                            "name": "Kategorie",
+                            "type": "text"
+                        },
+                        {
+                            "id": "link",
+                            "name": "Link",
+                            "type": "url"
+                        },
+                        {
+                            "id": "backgroundColor",
+                            "name": "Hintergrundfarbe",
+                            "type": "text"
+                        }
+                    ]
+                },
+                {
+                    "id": "commands",
+                    "name": "Befehle",
+                    "fields": [
+                        {
+                            "id": "testboxname",
+                            "name": "CBox-Name / Channel-ID",
+                            "type": "text",
+                            "transient": true
+                        },
+                        {
+                            "id": "playobjectcommand",
+                            "name": "Anzeigen",
+                            "type": "command",
+                            "resturl": "/play/object/<#id>?boxorchannel=<testboxname>",
+                            "restmethod": "GET"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

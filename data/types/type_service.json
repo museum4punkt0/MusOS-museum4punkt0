@@ -1,0 +1,63 @@
+{
+    "id": "type.service",
+    "type": "type",
+    "title": "Service",
+    "fields": {
+        "id": "service",
+        "name": "Dienstleistung",
+        "parent": "",
+        "internal": true,
+        "titlefields": ["name"],
+        "tablefields": ["name", "price", "duration"],
+        "iconurl": "icons/mdi/toolbox.svg",
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "general",
+                    "name": "Allgemein",
+                    "fields": [
+                        {
+                            "id": "name",
+                            "name": "Name",
+                            "type": "text",
+                            "mandatory": true
+                        },
+                        {
+                            "id": "price",
+                            "name": "Preis",
+                            "type": "text"
+                        },
+                        {
+                            "id": "duration",
+                            "name": "Dauer",
+                            "type": "text"
+                        },
+                        {
+                            "id": "description",
+                            "name": "Beschreibung",
+                            "type": "text",
+                            "maxlength": 2000
+                        },
+                        {
+                            "id": "shopurl",
+                            "name": "Shop URL",
+                            "type": "url"
+                        }
+                    ]
+                },
+                {
+                    "id": "notes",
+                    "name": "Notizen",
+                    "fields": [
+                        {
+                            "id": "notes",
+                            "name": "Notizen",
+                            "type": "text",
+                            "maxlength": 2000
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "id": "role.scenography",
+    "type": "role",
+    "title": "Szenografie",
+    "remarks": "Die Rolle \"Szenographie\" erlaubt lediglich den Zugriff auf einen Teil des Systems, insbesondere auf Storytelling-Elemente.",
+    "fields": {
+        "id": "scenography",
+        "name": "Szenografie",
+        "defaultaccessibility": "hidden",
+        "changeOwnPassword": true
+    }
+}

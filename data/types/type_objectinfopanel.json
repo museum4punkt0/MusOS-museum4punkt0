@@ -1,0 +1,98 @@
+{
+    "id": "type.objectinfopanel",
+    "type": "type",
+    "title": "Infotafel",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "objectinfopanel",
+        "name": "Infotafel",
+        "parent": "content",
+        "titlefields": ["title"],
+        "tablefields": ["title"],
+        "placeholderurl": "placeholders/info-panel.svg",
+        "iconurl": "icons/contexagon/info-panel.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.office", "role.scenography", "role.designer"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "content",
+                    "name": "Inhalt",
+                    "fields": [
+                        {
+                            "id": "title",
+                            "name": "Titel",
+                            "type": "text"
+                        },
+                        {
+                            "id": "quantity",
+                            "name": "Menge",
+                            "type": "select",
+                            "options": ["1", "2", "3"],
+                            "translations": {
+                                "1": {"de": "einfach"},
+                                "2": {"de": "zwei zum Vergleich"},
+                                "3": {"de": "drei zum Vergleich"}
+                            },
+                            "default": "1"
+                        },
+                        {
+                            "id": "fieldIds",
+                            "name": "anzuzeigende Felder",
+                            "type": "textarray"
+                        },
+                        {
+                            "id": "imagetags",
+                            "name": "Bild-Tags",
+                            "type": "textarray"
+                        }
+                    ]
+                },
+                {
+                    "id": "design",
+                    "name": "Design",
+                    "fields": [
+                        {
+                            "id": "style",
+                            "name": "Stil",
+                            "type": "reference",
+                            "reftypes": ["stylesheet"],
+                            "refconstraint": "{\"fields.category\": \"objectinfopanel\"}",
+                            "quantity": "single"
+                        }
+                    ]
+                },
+                {
+                    "id": "commands",
+                    "name": "Befehle",
+                    "fields": [
+                        {
+                            "id": "testboxname",
+                            "name": "CBox-Name / Channel-ID",
+                            "type": "text",
+                            "transient": true
+                        },
+                        {
+                            "id": "playobjectcommand",
+                            "name": "Anzeigen",
+                            "type": "command",
+                            "resturl": "/play/object/<#id>?boxorchannel=<testboxname>",
+                            "restmethod": "GET"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

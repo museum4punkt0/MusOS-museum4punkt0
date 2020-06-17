@@ -1,0 +1,45 @@
+{
+    "id": "type.menutext",
+    "type": "type",
+    "title": "Text",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "menutext",
+        "name": "Text",
+        "parent": "menuwidget",
+        "internal": true,
+        "titlefields": ["text"],
+        "tablefields": ["text"],
+        "iconurl": "icons/mdi/alphabetical.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.scenography", "role.designer"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "definition",
+                    "name": "Definition",
+                    "fields": [
+                        {
+                            "id": "text",
+                            "name": "Text",
+                            "type": "text",
+                            "maxlength": 5000,
+                            "localizable": true
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

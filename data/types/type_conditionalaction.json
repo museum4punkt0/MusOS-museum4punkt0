@@ -1,0 +1,100 @@
+{
+    "id": "type.conditionalaction",
+    "type": "type",
+    "title": "bedingte Aktion",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "conditionalaction",
+        "name": "bedingte Aktion",
+        "parent": "specialaction",
+        "internal": true,
+        "titlefields": ["conditions"],
+        "tablefields": ["active", "start", "delay", "duration", "conditions"],
+        "iconurl": "icons/contexagon/if-else-24px.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.scenography"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "content",
+                    "name": "Inhalt",
+                    "fields": [
+                        {
+                            "id": "active",
+                            "name": "aktiv",
+                            "type": "bool",
+                            "default": true
+                        },
+                        {
+                            "id": "conditions",
+                            "name": "Bedingungen",
+                            "type": "element",
+                            "reftypes": ["condition"],
+                            "tooltip": "sämtliche angegebene Bedingungen müssen erfüllt sein"
+                        },
+                        {
+                            "id": "actions",
+                            "name": "bedingte Aktionen",
+                            "type": "element",
+                            "reftypes": ["sceneaction", "generalaction"],
+                            "tooltip": "Aktionen, die nur dann ausgeführt werden, wenn die Bedingungen erfüllt sind"
+                        },
+                        {
+                            "id": "alternative",
+                            "name": "andernfalls",
+                            "type": "element",
+                            "reftypes": ["sceneaction", "generalaction"],
+                            "tooltip": "Aktionen, die andernfalls ausgeführt werden"
+                        }
+                    ]
+                },
+                {
+                    "id": "timing",
+                    "name": "Timing",
+                    "joinsidebar": "content",
+                    "fields": [
+                        {
+                            "id": "start",
+                            "name": "Start",
+                            "type": "select",
+                            "options": ["initially", "withprevious", "afterprevious"],
+                            "translations": {
+                                "initially": {"de": "anfangs"},
+                                "withprevious": {"de": "mit vorigem"},
+                                "afterprevious": {"de": "nach vorigem"}
+                            },
+                            "default": "afterprevious"
+                        },
+                        {
+                            "id": "delay",
+                            "name": "Verzögerung",
+                            "type": "float",
+                            "suffixes": ["s", "ms", "min"],
+                            "defaultsuffix": "s",
+                            "default": 0
+                        },
+                        {
+                            "id": "duration",
+                            "name": "Dauer",
+                            "type": "float",
+                            "suffixes": ["s", "ms", "min"],
+                            "defaultsuffix": "s",
+                            "default": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

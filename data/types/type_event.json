@@ -1,0 +1,158 @@
+{
+    "id": "type.event",
+    "type": "type",
+    "title": "Event",
+    "fields": {
+        "id": "event",
+        "name": "Event",
+        "parent": "",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.office"]
+                }
+            }
+        ],
+        "titlefields": ["name", "customer"],
+        "tablefields": ["name", "customer", "date", "time"],
+        "placeholderurl": "placeholders/event.svg",
+        "iconurl": "icons/material/baseline/baseline-event-24px.svg",
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "general",
+                    "name": "Allgemein",
+                    "fields": [
+                        {
+                            "id": "name",
+                            "name": "Eventname",
+                            "type": "text",
+                            "mandatory": true
+                        },
+                        {
+                            "id": "customer",
+                            "name": "Auftraggeber",
+                            "type": "reference",
+                            "reftypes": ["contact"]
+                        },
+                        {
+                            "id": "date",
+                            "name": "Datum",
+                            "type": "date",
+                            "mandatory": true
+                        },
+                        {
+                            "id": "time",
+                            "name": "Uhrzeit",
+                            "type": "time",
+                            "mandatory": true
+                        },
+                        {
+                            "id": "description",
+                            "name": "Beschreibung",
+                            "type": "text",
+                            "maxlength": 5000
+                        }
+                    ]
+                },
+                {
+                    "id": "services",
+                    "name": "Leistungen",
+                    "fields": [
+                        {
+                            "id": "services",
+                            "name": "Leistungen",
+                            "type": "reference",
+                            "reftypes": ["service"]
+                        },
+                        {
+                            "id": "remarks",
+                            "name": "Bemerkungen",
+                            "type": "text",
+                            "maxlength": 5000
+                        },
+                        {
+                            "id": "paymentMethod",
+                            "name": "Zahlungsmodalität",
+                            "type": "select",
+                            "options": ["bill", "cash"],
+                            "translations": {
+                                "bill": {"de": "Rechnung"},
+                                "cash": {"de": "Barzahlung"}
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "reminders",
+                    "name": "Erinnerungen",
+                    "fields": [
+                        {
+                            "id": "reminderlist",
+                            "name": "Erinnerungen",
+                            "type": "reference",
+                            "reftypes": ["reminder"],
+                            "preference": "creation"
+                        }
+                    ]
+                },
+                {
+                    "id": "coordination",
+                    "name": "Koordination",
+                    "fields": [
+                        {
+                            "id": "participants",
+                            "name": "Anzahl Teilnehmer",
+                            "type": "int"
+                        },
+                        {
+                            "id": "location",
+                            "name": "Ort",
+                            "type": "text",
+                            "localizable": true
+                        },
+                        {
+                            "id": "meetingPoint",
+                            "name": "Treffpunkt",
+                            "type": "text",
+                            "localizable": true
+                        },
+                        {
+                            "id": "language",
+                            "name": "Sprache",
+                            "type": "select",
+                            "options": ["german", "english", "french", "italian"]
+                        },
+                        {
+                            "id": "guide",
+                            "name": "Guide",
+                            "type": "reference",
+                            "reftypes": ["contact"]
+                        },
+                        {
+                            "id": "vendors",
+                            "name": "Lieferanten",
+                            "type": "reference",
+                            "reftypes": ["contact"]
+                        }
+                    ]
+                },
+                {
+                    "id": "welcomeScreen",
+                    "name": "Begrüssungsschirm",
+                    "fields": [
+                        {
+                            "id": "welcomeSlide",
+                            "name": "Textfolie",
+                            "type": "reference",
+                            "reftypes": ["textslide"],
+                            "quantity": "single"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

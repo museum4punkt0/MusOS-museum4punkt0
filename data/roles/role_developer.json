@@ -1,0 +1,17 @@
+{
+    "id": "role.developer",
+    "type": "role",
+    "title": "Developer",
+    "remarks": "Developer haben zusätzlich Zugriff auf Funktionen zum Debugging.",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "admin",
+        "name": "Administrator",
+        "defaultaccessibility": "writable",
+        "changeOwnPassword": true
+    }
+}

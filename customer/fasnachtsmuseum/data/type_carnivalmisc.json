@@ -1,0 +1,301 @@
+{
+    "id": "type.69E9BD00-C15D-4126-8757-Z9G00845305I",
+    "type": "type",
+    "title": "Sonstiges",
+    "fields": {
+        "id": "carnivalmisc",
+        "name": "Sonstiges",
+        "parent": "exhibit",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.curator"]
+                }
+            }
+        ],
+        "titlefields": ["name"],
+        "tablefields": ["#imageurl", "name"],
+        "iconurl": "icons/material/baseline/baseline-scatter_plot-24px.svg",
+        "definition": {
+            "fieldsets": [
+            {
+                "id": "general",
+                "name": "Allgemein",
+                "fields": [
+                    {
+                        "id": "name",
+                        "name": "Objektbezeichnung",
+                        "type": "text",
+                        "maxlength": "50",
+                        "mandatory": "true",
+                        "localizable": "false",
+                        "istitle": "true"
+                    },
+                    {
+                        "id": "subcategory",
+                        "name": "Unterkategorie",
+                        "type": "select",
+                        "options": ["Sonstige Exponate", "Fahnen", "Ordenssammlungen", "Narrenattribute", "Leihvertrag", "Sonstiges"]
+                    },
+                    {
+                        "id": "inventorynumber",
+                        "name": "Inventarnummer",
+                        "type": "number",
+                        "mandatory": "false",
+                        "localizable": "false"
+                    },
+                    {
+                        "id": "inventorynumber_old",
+                        "name": "Inventarnummer alt",
+                        "type": "number",
+                        "mandatory": "false",
+                        "localizable": "false"
+                    },
+                    {
+                        "id": "date",
+                        "name": "Datierung",
+                        "type": "date",
+                        "mandatory": "false",
+                        "localizable": "false"
+                    },
+                    {
+                        "id": "manufacturer",
+                        "name": "Ersteller",
+                        "type": "text",
+                        "maxlength": "100",
+                        "mandatory": "false",
+                        "localizable": "false"
+                    },
+                    {
+                        "id": "manufacturerlocation",
+                        "name": "Herstellungsort",
+                        "type": "text",
+                        "maxlength": "100",
+                        "mandatory": "false",
+                        "localizable": "false"
+                    },
+                    {
+                        "id": "usagelocation",
+                        "name": "Verwendungsort",
+                        "type": "text",
+                        "maxlength": "100",
+                        "mandatory": "false",
+                        "localizable": "false"
+                    },
+                    {
+                        "id": "maskdescription",
+                        "name": "Beschreibung",
+                        "type": "element",
+                        "reftypes": ["fnm_description"]
+                    },
+                    {
+                        "id": "label",
+                        "name": "Beschriftung",
+                        "type": "text",
+                        "maxlength": "5000",
+                        "mandatory": "false",
+                        "localizable": "false"
+                    },
+                    {
+                        "id": "location",
+                        "name": "Standort",
+                        "type": "text",
+                        "mandatory": "false",
+                        "localizable": "false"
+                    },
+                    {
+                        "id": "remarks",
+                        "name": "Bemerkungen",
+                        "type": "text",
+                        "maxlength": "5000",
+                        "mandatory": "false",
+                        "localizable": "false"
+                    }
+
+                ]
+            },
+            {
+                "id": "details",
+                "name": "Details",
+                "fields": [
+                    {
+                        "id": "preservation",
+                        "name": "Erhaltung",
+                        "type": "text",
+                        "maxlength": "500",
+                        "mandatory": "false",
+                        "localizable": "false"
+                    },
+                    {
+                        "id": "preservationstate",
+                        "name": "Erhaltungszustand",
+                        "type": "text",
+                        "maxlength": "500",
+                        "mandatory": "false",
+                        "localizable": "false"
+                    },
+                    {
+                        "id": "preowner",
+                        "name": "Vorbesitzer",
+                        "type": "text",
+                        "maxlength": "5000",
+                        "mandatory": "false",
+                        "localizable": "false"
+                    },
+                    {
+                        "id": "purchase",
+                        "name": "Erwerbsart",
+                        "type": "select",
+                        "options": ["Leihgabe", "Kauf", "Auktion", "Schenkung", "Sonstige"]
+                    },
+                    {
+                        "id": "purchasedate",
+                        "name": "Erwerbsdatum",
+                        "type": "date",
+                        "mandatory": "false",
+                        "localizable": "false"
+                    },
+                    {
+                        "id": "price",
+                        "name": "Preis",
+                        "type": "number",
+                        "suffixes": ["EUR", "CHF", "USD", "DM", "Sonstige"],
+                        "defaultsuffix": "EUR",
+                        "mandatory": "false",
+                        "localizable": "false"
+                    },
+                    {
+                        "id": "value",
+                        "name": "Wert",
+                        "type": "number",
+                        "suffixes": ["EUR", "CHF", "USD", "DM", "Sonstige"],
+                        "defaultsuffix": "EUR",
+                        "mandatory": "false",
+                        "localizable": "false"
+                    },
+                    {
+                        "id": "valuedate",
+                        "name": "Bewertungsdatum",
+                        "type": "date",
+                        "mandatory": "false",
+                        "localizable": "false"
+                    },
+                    {
+                        "id": "literature",
+                        "name": "Literatur",
+                        "type": "text",
+                        "maxlength": "5000",
+                        "mandatory": "false",
+                        "localizable": "false"
+                    },
+                    {
+                        "id": "project",
+                        "name": "Projekt",
+                        "type": "text",
+                        "maxlength": "1000",
+                        "mandatory": "false",
+                        "localizable": "false"
+                    },
+                    {
+                        "id": "department",
+                        "name": "Abteilung",
+                        "type": "text",
+                        "maxlength": "500",
+                        "mandatory": "false",
+                        "localizable": "false"
+                    }
+
+
+                ]
+            },
+            {
+                "id": "images",
+                "name": "Bilder",
+                "fields": [
+                    {
+                        "id": "imagelist",
+                        "name": "Bilder",
+                        "type": "medialist",
+                        "mandatory": "false",
+                        "localizable": "false"
+                    },
+                    {
+                        "id": "imagedescription",
+                        "name": "Beschreibung",
+                        "type": "text",
+                        "maxlength": "5000",
+                        "mandatory": "false",
+                        "localizable": "false"
+                    },
+                    {
+                        "id": "imagenumber",
+                        "name": "Fotonummer",
+                        "type": "number",
+                        "mandatory": "false",
+                        "localizable": "false"
+                    },
+                    {
+                        "id": "imagemodifier",
+                        "name": "Bearbeiter",
+                        "type": "text",
+                        "maxlength": "300",
+                        "mandatory": "false",
+                        "localizable": "false"
+                    },
+                    {
+                        "id": "modifydate",
+                        "name": "Bearbeitungsdatum",
+                        "type": "date",
+                        "mandatory": "false",
+                        "localizable": "false"
+                    }
+                ]
+            },
+            {
+                "id": "documents",
+                "name": "Dokumente",
+                "fields": [
+                    {
+                        "id": "documentlist",
+                        "name": "Dokumente",
+                        "type": "medialist",
+                        "mandatory": "false",
+                        "localizable": "false"
+                    },
+                    {
+                        "id": "document",
+                        "name": "Bemerkungen",
+                        "type": "text",
+                        "maxlength": "5000",
+                        "mandatory": "false",
+                        "localizable": "false"
+                    }
+                ]
+            },
+            {
+                "id": "provinience",
+                "name": "Provenienz",
+                "fields": [
+                    {
+                        "id": "provlist",
+                        "name": "Provenienz-Dokumente",
+                        "type": "medialist",
+                        "mandatory": "false",
+                        "localizable": "false"
+                    },
+                     {
+                        "id": "provenience",
+                        "name": "Provenienz",
+                        "type": "text",
+                        "maxlength": "5000",
+                        "mandatory": "false",
+                        "localizable": "false"
+                    }
+                ]
+            }
+        ]
+        }
+    }
+}

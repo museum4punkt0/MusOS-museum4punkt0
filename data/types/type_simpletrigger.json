@@ -1,0 +1,105 @@
+{
+    "id": "type.simpletrigger",
+    "type": "type",
+    "title": "einfacher Auslöser",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "simpletrigger",
+        "name": "einfacher Auslöser",
+        "parent": "sensor",
+        "titlefields": ["name"],
+        "tablefields": ["name", "triggereffects.#title", "building", "section"],
+        "placeholderurl": "placeholders/trigger.svg",
+        "iconurl": "icons/mdi/radiobox-marked.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.scenography"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "general",
+                    "name": "Allgemein",
+                    "fields": [
+                        {
+                            "id": "name",
+                            "name": "Identifikation",
+                            "type": "text",
+                            "mandatory": true,
+                            "note": "muss identisch sein mit dem auf dem Sensor hinterlegten Namen (auch Groß/Kleinschreibung beachten)"
+                        },
+                        {
+                            "id": "description",
+                            "name": "Beschreibung",
+                            "type": "text",
+                            "maxlength": 5000,
+                            "tooltip": "z.B. Ort, wo der Sensor aufgestellt ist"
+                        },
+                        {
+                            "id": "triggereffects",
+                            "name": "Effekte",
+                            "type": "reference",
+                            "reftypes": ["story"]
+                        }
+                    ]
+                },
+                {
+                    "id": "location",
+                    "name": "Verortung",
+                    "fields": [
+                        {
+                            "id": "building",
+                            "name": "Gebäude",
+                            "type": "text"
+                        },
+                        {
+                            "id": "floor",
+                            "name": "Etage",
+                            "type": "int",
+                            "tooltip": "als numerischer Wert, 0 für EG, 1 für 1. OG usw."
+                        },
+                        {
+                            "id": "section",
+                            "name": "Sektion",
+                            "type": "text",
+                            "tooltip": "sprechender Name für eine Etage (z.B. \"EG\"), den Teil einer Etage (z.B. \"Nord\"), einen benannten Bereich (z.B. \"Eingangsbereich\") oder eine Kombination solcher Angaben"
+                        },
+                        {
+                            "id": "coordinates",
+                            "name": "Koordinaten",
+                            "type": "text"
+                        },
+                        {
+                            "id": "exhibit",
+                            "name": "Exponat",
+                            "type": "reference",
+                            "reftypes": ["exhibit"]
+                        }
+                    ]
+                },
+                {
+                    "id": "commands",
+                    "name": "Befehle",
+                    "fields": [
+                        {
+                            "id": "triggercommand",
+                            "name": "Auslösen",
+                            "type": "command",
+                            "resturl": "/trigger/sensor/<name>",
+                            "restmethod": "GET"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

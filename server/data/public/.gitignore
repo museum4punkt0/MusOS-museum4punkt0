@@ -1,0 +1,12 @@
+# this directory contains all the files copied from the client after building
+# (see deploy script in the client folder)
+
+# DO NOT PLACE ANY FILES HERE!
+# PUT THEM INTO THE CLIENT PUBLIC FOLDER INSTEAD!
+# FILES HERE ARE DELETED DURING THE DEPLOYMENT PROCESS!
+
+# tell git to ignore any files and folders here
+*
+
+# ...except this file
+!.gitignore

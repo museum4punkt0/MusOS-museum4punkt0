@@ -1,0 +1,177 @@
+{
+    "id": "type.channel",
+    "type": "type",
+    "title": "Kanal",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "channel",
+        "name": "Kanal",
+        "parent": "",
+        "titlefields": ["name"],
+        "tablefields": ["name"],
+        "placeholderurl": "placeholders/channel.svg",
+        "iconurl": "icons/material/baseline/baseline-waves-24px.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "readableFor": ["role.office"],
+                    "writableFor": ["role.scenography"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "general",
+                    "name": "Allgemein",
+                    "fields": [
+                        {
+                            "id": "name",
+                            "name": "Name",
+                            "type": "text",
+                            "mandatory": true
+                        },
+                        {
+                            "id": "description",
+                            "name": "Beschreibung",
+                            "type": "text",
+                            "maxlength": 5000
+                        }
+                    ]
+                },
+                {
+                    "id": "commands",
+                    "name": "Befehle",
+                    "fieldsets": [
+                        {
+                            "id": "generalcommands",
+                            "name": "Allgemein",
+                            "fields": [
+                                {
+                                    "id": "pingcommand",
+                                    "name": "Ping",
+                                    "type": "command",
+                                    "resturl": "/box/ping?channelname=<name>",
+                                    "restmethod": "GET"
+                                },
+                                {
+                                    "id": "resetcommand",
+                                    "name": "Reset",
+                                    "type": "command",
+                                    "resturl": "/box/reset?channelname=<name>",
+                                    "restmethod": "GET"
+                                },
+                                {
+                                    "id": "reloadcommand",
+                                    "name": "Reload",
+                                    "type": "command",
+                                    "resturl": "/box/reload?channelname=<name>",
+                                    "restmethod": "GET"
+                                },
+                                {
+                                    "id": "testnotificationtext",
+                                    "name": "Benachrichtigung",
+                                    "type": "text",
+                                    "transient": true
+                                },
+                                {
+                                    "id": "playnotificationcommand",
+                                    "name": "Senden",
+                                    "type": "command",
+                                    "resturl": "/notification/show?channelname=<name>&text=<testnotificationtext>",
+                                    "restmethod": "GET"
+                                },
+                                {
+                                    "id": "clearnotificationcommand",
+                                    "name": "Löschen",
+                                    "type": "command",
+                                    "resturl": "/notification/show?channelname=<name>&text=",
+                                    "restmethod": "GET"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "mediacommands",
+                            "name": "Media Playback",
+                            "fields": [
+                                {
+                                    "id": "testmediaurl",
+                                    "name": "URL",
+                                    "type": "mediaurl",
+                                    "transient": true
+                                },
+                                {
+                                    "id": "playmediacommand",
+                                    "name": "Abspielen",
+                                    "type": "command",
+                                    "resturl": "/play/mediaurl?channelname=<name>&url=<testmediaurl>",
+                                    "restmethod": "GET"
+                                },
+                                {
+                                    "id": "pausecommand",
+                                    "name": "Pause",
+                                    "type": "command",
+                                    "resturl": "/play/pause?channelname=<name>",
+                                    "restmethod": "GET"
+                                },
+                                {
+                                    "id": "resumecommand",
+                                    "name": "Fortsetzen",
+                                    "type": "command",
+                                    "resturl": "/play/resume?channelname=<name>",
+                                    "restmethod": "GET"
+                                },
+                                {
+                                    "id": "stopcommand",
+                                    "name": "Stopp",
+                                    "type": "command",
+                                    "resturl": "/play/stop?channelname=<name>",
+                                    "restmethod": "GET"
+                                },
+                                {
+                                    "id": "testvolume",
+                                    "name": "Lautstärke",
+                                    "type": "int",
+                                    "transient": true
+                                },
+                                {
+                                    "id": "setvolumecommand",
+                                    "name": "Anpassen",
+                                    "type": "command",
+                                    "resturl": "/play/volume?channelname=<name>&percent=<testvolume>",
+                                    "restmethod": "GET"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "chatcommands",
+                            "name": "Chat",
+                            "fields": [
+                                {
+                                    "id": "testmessagetext",
+                                    "name": "Chat-Mitteilung",
+                                    "type": "text",
+                                    "maxlength": 5000,
+                                    "transient": true
+                                },
+                                {
+                                    "id": "playtextcommand",
+                                    "name": "Senden",
+                                    "type": "command",
+                                    "resturl": "/chat/message?channelname=<name>&text=<testmessagetext>",
+                                    "restmethod": "GET"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

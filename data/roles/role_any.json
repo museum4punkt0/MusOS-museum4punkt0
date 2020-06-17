@@ -1,0 +1,16 @@
+{
+    "id": "role.any",
+    "type": "role",
+    "title": "jeder",
+    "remarks": "Diese Rolle muss nicht explizit zugeordnet werden, sondern sie ist implizit jedem User zugeordnet, und dient zur Vergabe allgemeiner Berechtigungen (etwa damit jeder lesend auf die aktuelle Konfiguration zugreifen kann, ohne jede mögliche Rolle explizit zu nennen).",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "any",
+        "name": "jeder",
+        "defaultaccessibility": "hidden"
+    }
+}

@@ -1,0 +1,6 @@
+# docker-compose (file created dynamically)
+/docker-compose.yml
+/define_env.sh
+
+# logging
+/modules/output.log

@@ -1,0 +1,13 @@
+{
+    "id": "channel.broadcast",
+    "type": "channel",
+    "title": "Broadcast",
+    "objectaccess": {
+        "accessibility": "readonly",
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "broadcast",
+        "name": "Broadcast"
+    }
+}

@@ -1,0 +1,86 @@
+{
+    "id": "type.A9CA0E7F-2904-405A-B2A3-5DF23515F7A9",
+    "type": "type",
+    "title": "Brauch",
+    "fields": {
+        "id": "carnivaltradition",
+        "name": "Brauch",
+        "parent": "exhibit",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.curator"]
+                }
+            }
+        ],
+        "titlefields": ["name"],
+        "tablefields": ["#imageurl", "name"],
+        "placeholderurl": "placeholders/world.svg",
+        "iconurl": "icons/material/baseline/baseline-public-24px.svg",
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "general",
+                    "name": "Allgemein",
+                    "fields": [
+                        {
+                            "id": "name",
+                            "name": "Bezeichnung",
+                            "type": "text",
+                            "maxlength": "50",
+                            "mandatory": "true",
+                            "localizable": "false",
+                            "istitle": "true"
+                        },
+                        {
+                            "id": "subcategory",
+                            "name": "Unterkategorie",
+                            "type": "select",
+                            "options": ["Fasnachtsbräuche", "Ausserfasnächtliche Bräuche", "Sonstiges"]
+                        },
+                        {
+                            "id": "description",
+                            "name": "Beschreibung",
+                            "type": "text",
+                            "maxlength": "10000",
+                            "mandatory": "false",
+                            "localizable": "false",
+                            "istitle": "true"
+                        },
+                        {
+                            "id": "traditionfigures",
+                            "name": "Zunftfiguren",
+                            "type": "text",
+                            "maxlength": "10000",
+                            "mandatory": "false",
+                            "localizable": "false",
+                            "istitle": "true"
+                        },
+                        {
+                            "id": "sorces",
+                            "name": "Quellen",
+                            "type": "text",
+                            "maxlength": "10000",
+                            "mandatory": "false",
+                            "localizable": "false",
+                            "istitle": "true"
+                        }
+                    ]
+                },
+                {
+                    "id": "media",
+                    "name": "Medien",
+                    "fields": [
+                        {
+                            "id": "medialist",
+                            "name": "Medien",
+                            "type": "medialist"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

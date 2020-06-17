@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="880 90 2000 2000">
+	
+	<!-- box -->
+	<polygon fill="#00DAB9" points="1353.781,775.995 1893.355,1088.486 1353.781,1400.979"/> <!-- left -->
+	<polygon fill="#00FBD4" points="1893.355,463.504 1893.355,1088.486 1353.781,775.995"/> <!-- top left -->
+	<polygon fill="#00EDC9" points="2432.932,775.995 1893.355,1088.486 1893.355,463.504"/> <!-- top right -->
+	<polygon fill="#008470" points="2432.932,1400.979 1893.355,1088.486 2432.932,775.995"/> <!-- right -->
+	<polygon fill="#00917B" points="1893.355,1713.469 1893.355,1088.486 2432.932,1400.979"/> <!-- bottom right -->
+	<polygon fill="#00DBB9" points="1353.781,1400.979 1893.355,1088.486 1893.355,1713.469"/> <!-- bottom left -->
+
+	<!-- outer ring -->
+	<polygon fill="#00E1BE" points="1076,615.743 1269.847,727.92 1269.847,1449.053 1076,1561.23"/> <!-- left-->
+	<polygon fill="#00C7A8" points="1893.355,143 1893.355,367.353 1269.847,727.92 1076,615.743"/> <!-- top left -->
+	<polygon fill="#00F9D3" points="2710.711,615.743 2516.865,727.92 1893.355,367.353 1893.355,143"/> <!-- top right -->
+	<polygon fill="#00E1BE" points="1893.355,2033.973 1893.355,1809.621 2516.865,1449.053 2710.711,1561.23"/> <!-- bottom right -->
+	<polygon fill="#00E9C5" points="1076,1561.23 1269.847,1449.053 1893.355,1809.621 1893.355,2033.973"/> <!-- bottom left -->
+</svg>

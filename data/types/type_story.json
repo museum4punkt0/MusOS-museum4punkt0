@@ -1,0 +1,129 @@
+{
+    "id": "type.story",
+    "type": "type",
+    "title": "Story",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "story",
+        "name": "Story",
+        "parent": "",
+        "titlefields": ["name"],
+        "tablefields": ["name", "mode"],
+        "placeholderurl": "placeholders/story.svg",
+        "iconurl": "icons/material/baseline/baseline-local_library-24px.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.scenography"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "general",
+                    "name": "Allgemein",
+                    "fields": [
+                        {
+                            "id": "name",
+                            "name": "Name",
+                            "type": "text"
+                        },
+                        {
+                            "id": "exhibits",
+                            "name": "Exponate",
+                            "type": "reference",
+                            "preference": "selection",
+                            "reftypes": ["exhibit"]
+                        },
+                        {
+                            "id": "mode",
+                            "name": "Modus",
+                            "type": "select",
+                            "options": ["individual", "exclusive", "queueing", "shared"],
+                            "default": "individual",
+                            "translations": {
+                                "individual": {"de": "individuell (Effekte für jeden beteiligten parallel)"},
+                                "exclusive": {"de": "exklusiv (Effekte nur für den ersten beteiligten)"},
+                                "queueing": {"de": "nacheinander (Effekte exklusiv für den ersten, dann zweiten usw.)"},
+                                "shared": {"de": "geteilt (Effekte für den ersten bzw. letzten beteiligten)"}
+                            },
+                            "mandatory": true,
+                            "tooltip": "Nachrichten auf Mobilgeräte sind normalerweise individuell, Beleuchtungseffekte oftmals geteilt, Info-Terminals eher nacheinander oder exklusiv"
+                        },
+                        {
+                            "id": "entry",
+                            "name": "Einstieg",
+                            "type": "element",
+                            "reftypes": ["sceneselection"]
+                        },
+                        {
+                            "id": "exit",
+                            "name": "Ausstieg",
+                            "type": "element",
+                            "reftypes": ["sceneselection"]
+                        },
+                        {
+                            "id": "avatar",
+                            "name": "Avatar",
+                            "type": "reference",
+                            "reftypes": ["avatar"],
+                            "quantity": "single",
+                            "mandatory": false,
+                            "tooltip": "Begleiter für diese Story, nur anzugeben, wenn abweichend vom Standard-Begleiter des Besuchers"
+                        },
+                        {
+                            "id": "target",
+                            "name": "Zielgerät",
+                            "type": "reference",
+                            "preference": "selection",
+                            "reftypes": ["cbox", "channel"],
+                            "mandatory": false,
+                            "tooltip": "Zielgerät für diese Story, nur anzugeben, wenn abweichend vom Standard-Eingabegerät, mehrere Zielgeräte möglich"
+                        }
+                    ]
+                },
+                {
+                    "id": "commands",
+                    "name": "Befehle",
+                    "fields": [
+                        {
+                            "id": "testboxname",
+                            "name": "CBox-Name / Channel-ID",
+                            "type": "text",
+                            "transient": true
+                        },
+                        {
+                            "id": "testvisitortype",
+                            "name": "Besuchertyp",
+                            "type": "text",
+                            "transient": true
+                        },
+                        {
+                            "id": "playstorycommand",
+                            "name": "Starten (ohne Triggerung)",
+                            "type": "command",
+                            "resturl": "/play/story?boxorchannel=<testboxname>&visitortype=<testvisitortype>",
+                            "restmethod": "POST",
+                            "body": "this"
+                        },
+                        {
+                            "id": "exitstorycommand",
+                            "name": "Beenden (ohne Triggerung)",
+                            "type": "command",
+                            "resturl": "/play/story?boxorchannel=<testboxname>&visitortype=<testvisitortype>&method=leave",
+                            "restmethod": "POST",
+                            "body": "this"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

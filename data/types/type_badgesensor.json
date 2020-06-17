@@ -1,0 +1,125 @@
+{
+    "id": "type.badgesensor",
+    "type": "type",
+    "title": "Badge-Sensor",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "badgesensor",
+        "name": "Badge-Sensor",
+        "parent": "sensor",
+        "titlefields": ["name"],
+        "tablefields": ["name", "ranges.#title", "building", "section"],
+        "placeholderurl": "placeholders/sensor.svg",
+        "iconurl": "icons/material/baseline/baseline-signal_wifi_3_bar-24px.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.scenography"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "general",
+                    "name": "Allgemein",
+                    "fields": [
+                        {
+                            "id": "name",
+                            "name": "Identifikation",
+                            "type": "text",
+                            "mandatory": true,
+                            "note": "muss identisch sein mit dem auf dem Sensor hinterlegten Namen (auch Groß/Kleinschreibung beachten)"
+                        },
+                        {
+                            "id": "description",
+                            "name": "Beschreibung",
+                            "type": "text",
+                            "maxlength": 5000,
+                            "tooltip": "z.B. Ort, wo der Sensor aufgestellt ist"
+                        },
+                        {
+                            "id": "ranges",
+                            "name": "Bereiche",
+                            "type": "element",
+                            "reftypes": ["beaconrange"],
+                            "tooltip": "Angabe von Effekten nur nötig, wenn unterschiedliche Sensoren unterschiedliche Effekte auslösen sollen, andernfalls die Badges entsprechend konfigurieren"
+                        }
+                    ]
+                },
+                {
+                    "id": "location",
+                    "name": "Verortung",
+                    "fields": [
+                        {
+                            "id": "building",
+                            "name": "Gebäude",
+                            "type": "text"
+                        },
+                        {
+                            "id": "floor",
+                            "name": "Etage",
+                            "type": "int",
+                            "tooltip": "als numerischer Wert, 0 für EG, 1 für 1. OG usw."
+                        },
+                        {
+                            "id": "section",
+                            "name": "Sektion",
+                            "type": "text",
+                            "tooltip": "sprechender Name für eine Etage (z.B. \"EG\"), den Teil einer Etage (z.B. \"Nord\"), einen benannten Bereich (z.B. \"Eingangsbereich\") oder eine Kombination solcher Angaben"
+                        },
+                        {
+                            "id": "coordinates",
+                            "name": "Koordinaten",
+                            "type": "text"
+                        },
+                        {
+                            "id": "exhibit",
+                            "name": "Exponat",
+                            "type": "reference",
+                            "reftypes": ["exhibit"]
+                        }
+                    ]
+                },
+                {
+                    "id": "commands",
+                    "name": "Befehle",
+                    "fields": [
+                        {
+                            "id": "testrangeindex",
+                            "name": "Bereichsindex",
+                            "type": "int",
+                            "transient": true
+                        },
+                        {
+                            "id": "testbadgeid",
+                            "name": "Badge-ID",
+                            "type": "text",
+                            "transient": true
+                        },
+                        {
+                            "id": "entercommand",
+                            "name": "Annäherung auslösen",
+                            "type": "command",
+                            "resturl": "/trigger/badgesensor/<name>/<testrangeindex>?method=enter&badge=<testbadgeid>",
+                            "restmethod": "GET"
+                        },
+                        {
+                            "id": "leavecommand",
+                            "name": "Entfernung auslösen",
+                            "type": "command",
+                            "resturl": "/trigger/badgesensor/<name>/<testrangeindex>?method=leave&badge=<testbadgeid>",
+                            "restmethod": "GET"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

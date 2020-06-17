@@ -1,0 +1,14 @@
+.body {
+    font-family: Roboto;
+    font-size: 12pt;
+}
+.bigMessage {
+    font-family: Roboto;
+    font-size: 48pt;
+}
+.screenCentered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

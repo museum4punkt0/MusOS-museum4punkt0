@@ -1,0 +1,58 @@
+{
+    "id": "type.beaconrange",
+    "type": "type",
+    "title": "Bereich",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "beaconrange",
+        "name": "Bereich",
+        "parent": "",
+        "internal": true,
+        "titlefields": [{"text": "Distanz"}, "distance", {"text": "→"}, "effects.#title"],
+        "tablefields": ["distance", "effects.#title"],
+        "iconurl": "icons/mdi/circle-double.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.scenography"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "general",
+                    "name": "Allgemein",
+                    "fields": [
+                        {
+                            "id": "distance",
+                            "name": "Distanz",
+                            "type": "number",
+                            "mandatory": true,
+                            "default": 1
+                        },
+                        {
+                            "id": "hysteresis",
+                            "name": "Hysterese (%)",
+                            "type": "number",
+                            "mandatory": true,
+                            "default": 50
+                        },
+                        {
+                            "id": "effects",
+                            "name": "Effekte",
+                            "type": "reference",
+                            "reftypes": ["story"]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

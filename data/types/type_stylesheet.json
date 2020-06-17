@@ -1,0 +1,62 @@
+{
+    "id": "type.stylesheet",
+    "type": "type",
+    "title": "Stylesheet",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "stylesheet",
+        "name": "Stylesheet",
+        "parent": "",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "readonly",
+                    "writableFor": ["role.admin", "role.designer"],
+                    "readableFor": ["role.office", "role.scenography"]
+                }
+            }
+        ],
+        "titlefields": ["name"],
+        "tablefields": ["name"],
+        "placeholderurl": "placeholders/style.svg",
+        "iconurl": "icons/material/baseline/baseline-style-24px.svg",
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "general",
+                    "name": "Allgemein",
+                    "fields": [
+                        {
+                            "id": "category",
+                            "name": "Kategorie",
+                            "type": "select",
+                            "options": ["slide", "chat", "menu", "objectinfopanel"],
+                            "translations": {
+                                "slide": {"de": "Textfolie"},
+                                "chat": {"de": "Chat"},
+                                "menu": {"de": "Menü"},
+                                "objectinfopanel": {"de": "Infotafel"}
+                            },
+                            "mandatory": true
+                        },
+                        {
+                            "id": "name",
+                            "name": "Name",
+                            "type": "text"
+                        },
+                        {
+                            "id": "definition",
+                            "name": "Definition",
+                            "type": "code"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

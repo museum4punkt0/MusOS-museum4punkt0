@@ -1,0 +1,13 @@
+{
+    "id": "role.admin",
+    "type": "role",
+    "title": "Administrator",
+    "remarks": "Administratoren haben Zugriff auf das gesamte System und können weitreichende Änderungen durchführen inklusive Verwaltung aller Benutzer, Anpassung von Berechtigungen und Systemüberwachung.",
+    "fields": {
+        "id": "admin",
+        "name": "Administrator",
+        "defaultaccessibility": "writable",
+        "changeOwnPassword": true,
+        "resetOtherUsers": true
+    }
+}

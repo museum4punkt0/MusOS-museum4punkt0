@@ -1,0 +1,12 @@
+{
+    "id": "role.standard",
+    "type": "role",
+    "title": "Standardnutzer",
+    "remarks": "Standardnutzer verfügen über volle Zugriffsrechte auf einen Großteil des Systems, abgesehen von administrativen Bereichen (Benutzerverwaltung etc.) und Überwachungsfunktionen.",
+    "fields": {
+        "id": "standard",
+        "name": "Standardnutzer",
+        "defaultaccessibility": "writable",
+        "changeOwnPassword": true
+    }
+}

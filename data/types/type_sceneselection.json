@@ -1,0 +1,67 @@
+{
+    "id": "type.sceneselection",
+    "type": "type",
+    "title": "Szenenauswahl",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "sceneselection",
+        "name": "Szenenauswahl",
+        "parent": "",
+        "internal": true,
+        "titlefields": ["probability", {"text": "%"}, "visitortype.name", {"text": "→"}, "scene.name"],
+        "tablefields": ["visitortype.name", "probability", "scene.name"],
+        "iconurl": "icons/material/baseline/baseline-movie-24px.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.scenography"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "general",
+                    "name": "Allgemein",
+                    "fields": [
+                        {
+                            "id": "scene",
+                            "name": "Szene",
+                            "type": "reference",
+                            "preference": "selection",
+                            "reftypes": ["scene"]
+                        },
+                        {
+                            "id": "probability",
+                            "name": "Wahrscheinlichkeit",
+                            "type": "number",
+                            "mandatory": true,
+                            "default": 100
+                        },
+                        {
+                            "id": "visitortype",
+                            "name": "Besuchertyp",
+                            "type": "reference",
+                            "preference": "selection",
+                            "reftypes": ["visitortype"],
+                            "tooltip": "leer für alle Besuchertypen, mehrere Besuchertypen möglich"
+                        },
+                        {
+                            "id": "conditions",
+                            "name": "nur ausführen, wenn",
+                            "type": "element",
+                            "reftypes": ["condition"],
+                            "tooltip": "sämtliche angegebene Bedingungen müssen erfüllt sein, leer für bedingungslose Ausführung"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

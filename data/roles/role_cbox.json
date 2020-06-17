@@ -1,0 +1,16 @@
+{
+    "id": "role.cbox",
+    "type": "role",
+    "title": "CBox",
+    "remarks": "Die Rolle \"CBox\" wird lediglich für den Zugriff der CBoxes auf das System benötigt, und ist keinem tatsächlichen Nutzer zugeordnet.",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "cbox",
+        "name": "CBox",
+        "defaultaccessibility": "readonly",
+        "changeOwnPassword": false
+    }
+}

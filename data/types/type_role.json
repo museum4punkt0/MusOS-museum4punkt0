@@ -1,0 +1,84 @@
+{
+    "id": "type.role",
+    "type": "type",
+    "title": "Rolle",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "role",
+        "name": "Rolle",
+        "parent": "",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "hidden",
+                    "writableFor": ["role.admin"],
+                    "readableFor": ["role.standard"]
+                }
+            }
+        ],
+        "titlefields": ["name"],
+        "tablefields": ["name"],
+        "placeholderurl": "placeholders/role.svg",
+        "iconurl": "icons/material/baseline/baseline-how_to_reg-24px.svg",
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "general",
+                    "name": "Allgemein",
+                    "fields": [
+                        {
+                            "id": "id",
+                            "name": "Rollen-ID",
+                            "type": "text",
+                            "mandatory": true
+                        },
+                        {
+                            "id": "name",
+                            "name": "Name",
+                            "type": "text",
+                            "mandatory": true
+                        },
+                        {
+                            "id": "defaultaccessibility",
+                            "name": "Standard-Zugriffslevel",
+                            "type": "select",
+                            "options": ["hidden", "readonly", "writable"],
+                            "translations": {
+                                "hidden": {"de": "unsichtbar"},
+                                "readonly": {"de": "schreibgeschützt"},
+                                "writeable": {"de": "bearbeitbar"}
+                            },
+                            "default": "hidden",
+                            "mandatory": true
+                        }
+                    ]
+                },
+                {
+                    "id": "general",
+                    "name": "Berechtigungen",
+                    "fields": [
+                        {
+                            "id": "resetOtherUsers",
+                            "name": "andere Nutzer zurücksetzen",
+                            "type": "bool",
+                            "mandatory": true,
+                            "default": false
+                        },
+                        {
+                            "id": "changeOwnPassword",
+                            "name": "eigenes Passwort ändern",
+                            "type": "bool",
+                            "mandatory": true,
+                            "default": true
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

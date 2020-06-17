@@ -1,0 +1,13 @@
+{
+    "id": "channel.allboxes",
+    "type": "channel",
+    "title": "Alle Boxen",
+    "objectaccess": {
+        "accessibility": "readonly",
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "allboxes",
+        "name": "Alle Boxen"
+    }
+}

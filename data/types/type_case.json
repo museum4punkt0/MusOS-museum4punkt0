@@ -1,0 +1,52 @@
+{
+    "id": "type.case",
+    "type": "type",
+    "title": "Fall",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "case",
+        "name": "Fall",
+        "parent": "",
+        "internal": true,
+        "titlefields": ["conditions", {"text": "→"}, "actions"],
+        "tablefields": ["conditions", "actions"],
+        "iconurl": "icons/mdi/equal-box.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.scenography"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "case",
+                    "name": "Fall",
+                    "fields": [
+                        {
+                            "id": "conditions",
+                            "name": "Bedingungen",
+                            "type": "element",
+                            "reftypes": ["condition"],
+                            "tooltip": "sämtliche angegebene Bedingungen müssen erfüllt sein"
+                        },
+                        {
+                            "id": "actions",
+                            "name": "bedingte Aktionen",
+                            "type": "element",
+                            "reftypes": ["sceneaction", "generalaction"],
+                            "tooltip": "Aktionen, die nur dann ausgeführt werden, wenn die Bedingungen zutreffen"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

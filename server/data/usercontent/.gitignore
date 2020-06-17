@@ -1,0 +1,10 @@
+# this directory contains all files provided by customers
+# (used as FTP directory or similar)
+
+# DO NOT PLACE ANY FILES HERE!
+
+# tell git to ignore any files and folders here
+*
+
+# ...except this file
+!.gitignore

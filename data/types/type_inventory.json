@@ -1,0 +1,137 @@
+{
+    "id": "type.inventory",
+    "type": "type",
+    "title": "Inventar",
+    "fields": {
+        "id": "inventory",
+        "name": "Inventar",
+        "parent": "exhibit",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.curator"]
+                }
+            }
+        ],
+        "titlefields": ["manufacturer", "name"],
+        "tablefields": ["#imageurl", "manufacturer", "name"],
+        "placeholderurl": "placeholders/inventory.svg",
+        "iconurl": "icons/material/baseline/baseline-view_module-24px.svg",
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "general",
+                    "name": "Allgemein",
+                    "fields": [
+                        {
+                            "id": "inventoryno",
+                            "name": "Inventar Nummer",
+                            "type": "text",
+                            "mandatory": true
+                        },
+                        {
+                            "id": "category",
+                            "name": "Kategorie",
+                            "type": "text"
+                        },
+                        {
+                            "id": "manufacturer",
+                            "name": "Hersteller",
+                            "type": "text"
+                        },
+                        {
+                            "id": "name",
+                            "name": "Typ",
+                            "type": "text",
+                            "mandatory": true
+                        },
+                        {
+                            "id": "number",
+                            "name": "Anzahl",
+                            "type": "int"
+                        },
+                        {
+                            "id": "description",
+                            "name": "Beschreibung",
+                            "type": "text",
+                            "maxlength": 5000
+                        }
+                    ]
+                },
+                {
+                    "id": "property",
+                    "name": "Merkmale",
+                    "fields": [
+                        {
+                            "id": "since",
+                            "name": "seit",
+                            "type": "text"
+                        },
+                        {
+                            "id": "until",
+                            "name": "bis",
+                            "type": "text"
+                        },
+                        {
+                            "id": "location",
+                            "name": "derzeitiger Standort",
+                            "type": "text"
+                        },
+                        {
+                            "id": "owner",
+                            "name": "Besitzer",
+                            "type": "text"
+                        }
+                    ]
+                },
+                {
+                    "id": "dimensions",
+                    "name": "Abmessungen / Gewichte",
+                    "fields": [
+                        {
+                            "id": "length",
+                            "name": "Länge",
+                            "type": "number",
+                            "suffixes": ["mm", "cm", "m"],
+                            "defaultsuffix": "cm"
+                        },
+                        {
+                            "id": "width",
+                            "name": "Breite",
+                            "type": "number",
+                            "suffixes": ["mm", "cm", "m"],
+                            "defaultsuffix": "cm"
+                        },
+                        {
+                            "id": "height",
+                            "name": "Höhe",
+                            "type": "number",
+                            "suffixes": ["mm", "cm", "m"],
+                            "defaultsuffix": "cm"
+                        },
+                        {
+                            "id": "weight",
+                            "name": "Gewicht",
+                            "type": "number",
+                            "suffixes": ["t", "kg", "lbs"],
+                            "defaultsuffix": "kg"
+                        }
+                    ]
+                },
+                {
+                    "id": "media",
+                    "name": "Medien",
+                    "fields": [
+                        {
+                            "id": "medialist",
+                            "name": "Medien",
+                            "type": "medialist"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

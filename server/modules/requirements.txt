@@ -1,0 +1,14 @@
+requests==2.18.4
+Flask==1.1.1
+pymongo==3.9.0
+flask_pymongo==2.3.0
+flask-cors==3.0.8
+Flask_JWT_Extended==3.24.1
+Flask_Bcrypt==0.7.1
+Flask-SocketIO==4.2.1
+eventlet==0.25.1
+pyinfo==1.0.1
+Pillow==6.2.1
+opencv-python==4.1.1.26
+mutagen==1.42.0
+cachelib==0.1

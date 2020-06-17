@@ -1,0 +1,11 @@
+{
+    "id": "cbox.9381A10A-DFFB-4EB4-9039-C6792242E4AD",
+    "type" : "cbox",
+    "title": "testbox",
+    "fields": {
+        "name" : "testbox",
+        "content": [ 
+            "textslide.F923C5D2-85CA-4B98-8112-9F268C9A85EA"
+        ]
+    }
+}

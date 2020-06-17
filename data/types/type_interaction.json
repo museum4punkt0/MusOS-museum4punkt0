@@ -1,0 +1,116 @@
+{
+    "id": "type.interaction",
+    "type": "type",
+    "title": "Chat-Interaktion",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "interaction",
+        "name": "Chat-Interaktion",
+        "parent": "specialaction",
+        "internal": true,
+        "titlefields": ["text", "options.answer"],
+        "tablefields": ["active", "start", "delay", "duration", "text"],
+        "iconurl": "icons/mdi/forum.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.scenography"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "content",
+                    "name": "Inhalt",
+                    "fields": [
+                        {
+                            "id": "active",
+                            "name": "aktiv",
+                            "type": "bool",
+                            "default": true
+                        },
+                        {
+                            "id": "text",
+                            "name": "Text",
+                            "type": "text",
+                            "maxlength": 5000,
+                            "mandatory": false,
+                            "localizable": true
+                        },
+                        {
+                            "id": "options",
+                            "name": "Optionen",
+                            "type": "element",
+                            "reftypes": ["interactioncase"]
+                        },
+                        {
+                            "id": "avatar",
+                            "name": "Avatar",
+                            "type": "reference",
+                            "reftypes": ["avatar"],
+                            "quantity": "single",
+                            "mandatory": false,
+                            "tooltip": "Sender dieser Nachricht, nur anzugeben, wenn abweichend vom Standard-Begleiter der Szene"
+                        }
+                    ]
+                },
+                {
+                    "id": "timing",
+                    "name": "Timing",
+                    "joinsidebar": "content",
+                    "fields": [
+                        {
+                            "id": "start",
+                            "name": "Start",
+                            "type": "select",
+                            "options": ["initially", "withprevious", "afterprevious"],
+                            "translations": {
+                                "initially": {"de": "anfangs"},
+                                "withprevious": {"de": "mit vorigem"},
+                                "afterprevious": {"de": "nach vorigem"}
+                            },
+                            "default": "afterprevious"
+                        },
+                        {
+                            "id": "delay",
+                            "name": "Verzögerung",
+                            "type": "float",
+                            "suffixes": ["s", "ms", "min"],
+                            "defaultsuffix": "s",
+                            "default": 0
+                        },
+                        {
+                            "id": "duration",
+                            "name": "Dauer",
+                            "type": "float",
+                            "suffixes": ["s", "ms", "min"],
+                            "defaultsuffix": "s",
+                            "default": 0
+                        }
+                    ]
+                },
+                {
+                    "id": "additional",
+                    "name": "zusätzlich",
+                    "joinsidebar": "content",
+                    "fields": [
+                        {
+                            "id": "target",
+                            "name": "Zielgerät",
+                            "type": "reference",
+                            "reftypes": ["cbox", "channel"],
+                            "tooltip": "Zielgerät für diesen Befehl, nur anzugeben, wenn abweichend vom Standard-Zielgerät der Szene, mehrere Zielgeräte möglich"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

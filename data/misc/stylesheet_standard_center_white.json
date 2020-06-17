@@ -1,0 +1,15 @@
+{
+    "id": "stylesheet.standard-center-white",
+    "type": "stylesheet",
+    "title": "Standard zentriert weiß",
+    "objectaccess": {
+        "accessibility": "readonly",
+        "readableFor": ["role.designer", "role.office", "role.scenography"],
+        "writableFor": ["role.admin"]
+    },
+    "fields": {
+        "category": "slide",
+        "name": "Standard zentriert weiß",
+        "definition": "@font-face {\n    font-family: Roboto-Regular;\n    src: url(/fonts/Sans/Roboto/Roboto-Regular.ttf);\n}\n\n.slidelayout {\n    display: flex;\n    justify-content: space-between;\n}\n\n.slideimages {\n    order: 2;\n}\n\n.slideimage {\n    width: 400px;\n    margin: 40px 40px 0px 40px;\n}\n\n.slideimage > img {\n    width: 100%;\n    height: auto;\n}\n\n.slidecontent {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n}\n\n.slidetitle {\n    font-family: Roboto-Regular, sans-serif;\n    font-size: 72pt;\n    color: #fff;\n    text-align: center;\n    margin: 0;\n    padding-top: 24pt;\n    padding-bottom: 12pt;\n}\n\n.slide {\n    font-family: Roboto-Regular, sans-serif;\n    font-size: 24pt;\n    color: #fff;\n    text-align: center;\n    margin: 12pt;\n}\n\n.slide p {\n}\n\n.slide blockquote {\n    color: #777;\n    background: #eee;\n    padding: 0.5em;\n    margin: 12pt 0;\n}\n\n.slide pre {\n    border: 1px solid #ccc;\n    display: block;\n    background: #eee;\n    padding: 0.5em;\n}\n\n.slide blockquote p {\n    margin: 0;\n}\n\n.slide code {\n    border: 1px solid #fff;\n    background: #eee;\n    color: #777;\n    padding: 0 0.25em;\n}\n\n.slide pre code {\n    border: none;\n    background: #eee;\n    color: #777;\n    padding: 0 0;\n}\n\n.slide table {\n    border-collapse: collapse;\n    border-spacing: 0;\n    margin-bottom: 0.5em;\n    margin-left: auto;\n    margin-right: auto;\n}\n\n.slide th {\n    padding: 6px 13px;\n    background: #eee;\n    color: #777;\n}\n\n.slide td {\n    padding: 6px 13px;\n    text-align: left;\n}\n\n.slide table tr {\n    background: #ddd;\n    color: #777;\n}\n\n.slide table tr:nth-child(2n) {\n    background: #eee;\n    color: #777;\n}"
+    }
+}

@@ -1,0 +1,48 @@
+{
+    "id": "type.htmltemplate",
+    "type": "type",
+    "title": "HTML Template",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "htmltemplate",
+        "name": "HTML Template",
+        "parent": "",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "readonly",
+                    "writableFor": ["role.admin", "role.designer"],
+                    "readableFor": ["role.office", "role.scenography"]
+                }
+            }
+        ],
+        "titlefields": ["name"],
+        "tablefields": ["name"],
+        "iconurl": "icons/material/baseline/baseline-web-24px.svg",
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "general",
+                    "name": "Allgemein",
+                    "fields": [
+                        {
+                            "id": "name",
+                            "name": "Name",
+                            "type": "text"
+                        },
+                        {
+                            "id": "definition",
+                            "name": "Definition",
+                            "type": "code"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

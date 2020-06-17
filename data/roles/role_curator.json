@@ -1,0 +1,12 @@
+{
+    "id": "role.curator",
+    "type": "role",
+    "title": "Kurator",
+    "remarks": "Die Rolle \"Kurator\" erlaubt lediglich den Zugriff auf einen Teil des Systems, insbesondere auf die Exponatdatenbank.",
+    "fields": {
+        "id": "curator",
+        "name": "Kurator",
+        "defaultaccessibility": "hidden",
+        "changeOwnPassword": true
+    }
+}

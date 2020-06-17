@@ -1,0 +1,12 @@
+[Unit]
+Description=MusOS Beacon Sensor
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/pi/MusOS_Beaconsensor/beaconsensor.py
+WorkingDirectory=/home/pi/MusOS_Beaconsensor
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+

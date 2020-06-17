@@ -1,0 +1,125 @@
+{
+    "id": "type.mediaitem",
+    "type": "type",
+    "title": "Media Item",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "mediaitem",
+        "name": "Medienelement",
+        "parent": "",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.curator", "role.office", "role.scenography", "role.designer"]
+                }
+            }
+        ],
+        "tablefields": ["#imageurl", "title", "#mediainfo"],
+        "titlefields": ["title"],
+        "placeholderurl": "placeholders/image.svg",
+        "iconurl": "icons/mdi/folder-image.svg",
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "general",
+                    "name": "Allgemein",
+                    "fields": [
+                        {
+                            "id": "title",
+                            "name": "Title",
+                            "type": "text",
+                            "mandatory": true
+                        },
+                        {
+                            "id": "category",
+                            "name": "Kategorie",
+                            "type": "text"
+                        },
+                        {
+                            "id": "description",
+                            "name": "Description",
+                            "type": "text",
+                            "maxlength": 5000,
+                            "localizable": true
+                        },
+                        {
+                            "id": "url",
+                            "name": "URL",
+                            "type": "mediaurl",
+                            "maxlength": 500,
+                            "mandatory": true
+                        }
+                    ]
+                },
+                {
+                    "id": "publication",
+                    "name": "Veröffentlichung",
+                    "fields": [
+                        {
+                            "id": "citation",
+                            "name": "Quellenangabe",
+                            "type": "text"
+                        },
+                        {
+                            "id": "createdate",
+                            "name": "Aufnahmedatum",
+                            "type": "date"
+                        },
+                        {
+                            "id": "modifiedversion",
+                            "name": "modifizierte Variante",
+                            "type": "checkbox"
+                        },
+                        {
+                            "id": "copyrightprotected",
+                            "name": "urheberrechtlich geschützt",
+                            "type": "checkbox"
+                        },
+                        {
+                            "id": "publish_website",
+                            "name": "Veröffentlichung auf Website",
+                            "tooltip": "Falls diese Checkbox aktiv ist, wird das Medienelement beim Veröffentlichen eines Objekts angehängt.",
+                            "type": "checkbox"
+                        }
+                    ]
+                },
+                {
+                    "id": "commands",
+                    "name": "Befehle",
+                    "access": {
+                        "accessibility": "hidden",
+                        "writableFor": ["role.admin", "role.supervisor", "role.standard", "role.scenography"]
+                    },
+                    "fields": [
+                        {
+                            "id": "testboxname",
+                            "name": "CBox-Name / Channel-ID",
+                            "type": "text",
+                            "transient": true
+                        },
+                        {
+                            "id": "playmediaurlcommand",
+                            "name": "URL abspielen",
+                            "type": "command",
+                            "resturl": "/play/mediaurl?boxorchannel=<testboxname>&url=<url>",
+                            "restmethod": "GET"
+                        },
+                        {
+                            "id": "playmediaobjectcommand",
+                            "name": "gespeichertes Objekt abspielen",
+                            "type": "command",
+                            "resturl": "/play/object/<#id>?boxorchannel=<testboxname>",
+                            "restmethod": "GET"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

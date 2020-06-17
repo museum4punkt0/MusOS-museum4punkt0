@@ -1,0 +1,67 @@
+{
+    "id": "type.reminder",
+    "type": "type",
+    "title": "Erinnerung",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "reminder",
+        "name": "Erinnerung",
+        "parent": "",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.curator", "role.office"]
+                }
+            }
+        ],
+        "titlefields": ["subject"],
+        "tablefields": ["mailDate", "subject", "message"],
+        "placeholderurl": "placeholders/alarm.svg",
+        "iconurl": "icons/material/baseline/baseline-alarm-24px.svg",
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "general",
+                    "name": "Allgemein",
+                    "fields": [
+                        {
+                            "id": "subject",
+                            "name": "Betreff",
+                            "type": "text"
+                        },
+                        {
+                            "id": "message",
+                            "name": "Nachricht",
+                            "type": "text",
+                            "maxlength": 3000
+                        },
+                        {
+                            "id": "email",
+                            "name": "E-Mail",
+                            "type": "email"
+                        },
+                        {
+                            "id": "mailDate",
+                            "name": "Datum",
+                            "type": "datetime",
+                            "madatory": true
+                        },
+                        {
+                            "id": "interval",
+                            "name": "Intervall",
+                            "type": "int",
+                            "suffixes": ["Tage", "Wochen", "Monate"],
+                            "defaultsuffix": "Wochen"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

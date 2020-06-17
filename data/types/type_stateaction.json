@@ -1,0 +1,103 @@
+{
+    "id": "type.stateaction",
+    "type": "type",
+    "title": "Statusänderung",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "stateaction",
+        "name": "Statusänderung",
+        "parent": "generalaction",
+        "internal": true,
+        "titlefields": ["property.name", {"switch": "method", "case set": "←", "case add": "+"}, "value"],
+        "tablefields": ["active", "start", "delay", "duration", "#title"],
+        "iconurl": "icons/material/baseline/baseline-edit_attributes-24px.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.scenography"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "content",
+                    "name": "Inhalt",
+                    "fields": [
+                        {
+                            "id": "active",
+                            "name": "aktiv",
+                            "type": "bool",
+                            "default": true
+                        },
+                        {
+                            "id": "property",
+                            "name": "Eigenschaft",
+                            "type": "reference",
+                            "reftypes": ["stateproperty"],
+                            "quantity": "single",
+                            "mandatory": true
+                        },
+                        {
+                            "id": "method",
+                            "name": "Methode",
+                            "type": "select",
+                            "options": ["set", "add"],
+                            "translations": {
+                                "set": {"de": "zuweisen"},
+                                "add": {"de": "addieren"}
+                            },
+                            "default": "set"
+                        },
+                        {
+                            "id": "value",
+                            "name": "Wert",
+                            "type": "number"
+                        }
+                    ]
+                },
+                {
+                    "id": "timing",
+                    "name": "Timing",
+                    "joinsidebar": "content",
+                    "fields": [
+                        {
+                            "id": "start",
+                            "name": "Start",
+                            "type": "select",
+                            "options": ["initially", "withprevious", "afterprevious"],
+                            "translations": {
+                                "initially": {"de": "anfangs"},
+                                "withprevious": {"de": "mit vorigem"},
+                                "afterprevious": {"de": "nach vorigem"}
+                            },
+                            "default": "afterprevious"
+                        },
+                        {
+                            "id": "delay",
+                            "name": "Verzögerung",
+                            "type": "float",
+                            "suffixes": ["s", "ms", "min"],
+                            "defaultsuffix": "s",
+                            "default": 0
+                        },
+                        {
+                            "id": "duration",
+                            "name": "Dauer",
+                            "type": "float",
+                            "suffixes": ["s", "ms", "min"],
+                            "defaultsuffix": "s",
+                            "default": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

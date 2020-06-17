@@ -1,0 +1,13 @@
+{
+    "__preserve": true,
+    "id": "configuration.active",
+    "type": "configuration",
+    "title": "Konfiguration",
+    "imageurl": "",
+    "tags": [],
+    "fields": {
+      "supportedLanguages": ["de", "en", "fr", "it"],
+      "defaultLanguage": "de",
+      "fallbackLanguages": ["en", "de"],
+      "languageVisualization": "flag"  }
+}

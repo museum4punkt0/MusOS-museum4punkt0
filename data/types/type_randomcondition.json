@@ -1,0 +1,45 @@
+{
+    "id": "type.randomcondition",
+    "type": "type",
+    "title": "zufällig",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "randomcondition",
+        "name": "zufällig",
+        "parent": "condition",
+        "internal": true,
+        "titlefields": ["probability", {"text": "%"}],
+        "tablefields": ["#title"],
+        "iconurl": "icons/mdi/dice-multiple.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.scenography"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "condition",
+                    "name": "Bedingung",
+                    "fields": [
+                        {
+                            "id": "probability",
+                            "name": "Wahrscheinlichkeit",
+                            "type": "number",
+                            "mandatory": true,
+                            "default": 50
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "id": "user.cbox",
+    "type": "user",
+    "title": "CBox",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "email": "cbox",
+        "imageurl": "placeholders/star.svg",
+        "name": "CBox",
+        "password": "d5TL55llb0xRfZZMS9rUuVnA",
+        "roles": ["role.cbox"]
+    }
+}

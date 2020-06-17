@@ -1,0 +1,49 @@
+{
+    "id": "type.taggedmediaautomatism",
+    "type": "type",
+    "title": "markierte Medien",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "taggedmediaautomatism",
+        "name": "markierte Medien",
+        "parent": "actionautomatism",
+        "internal": true,
+        "titlefields": ["text"],
+        "tablefields": ["active", "start", "delay", "duration", "text"],
+        "iconurl": "icons/mdi/tag.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.scenography"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "automation",
+                    "name": "Automatisierung",
+                    "fields": [
+                        {
+                            "id": "maxCount",
+                            "name": "maximale Anzahl angehängter Medien",
+                            "type": "int",
+                            "default": 1
+                        },
+                        {
+                            "id": "tags",
+                            "name": "Tags",
+                            "type": "textarray"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

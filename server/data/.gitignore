@@ -1,0 +1,7 @@
+# following directories contain data provided by customers
+
+/db/
+/dblog/
+/serverlog/
+/uploads/
+/media/

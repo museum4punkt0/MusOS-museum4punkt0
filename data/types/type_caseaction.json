@@ -1,0 +1,92 @@
+{
+    "id": "type.caseaction",
+    "type": "type",
+    "title": "Fallunterscheidung",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "caseaction",
+        "name": "Fallunterscheidung",
+        "parent": "specialaction",
+        "internal": true,
+        "titlefields": ["cases.conditions"],
+        "tablefields": ["active", "start", "delay", "duration", "#title"],
+        "iconurl": "icons/contexagon/switch-case-24px.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.scenography"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "content",
+                    "name": "Inhalt",
+                    "fields": [
+                        {
+                            "id": "active",
+                            "name": "aktiv",
+                            "type": "bool",
+                            "default": true
+                        },
+                        {
+                            "id": "cases",
+                            "name": "Fälle",
+                            "type": "element",
+                            "reftypes": ["case"]
+                        },
+                        {
+                            "id": "alternative",
+                            "name": "andernfalls",
+                            "type": "element",
+                            "reftypes": ["sceneaction", "generalaction"],
+                            "tooltip": "Aktionen, die andernfalls ausgeführt werden"
+                        }
+                    ]
+                },
+                {
+                    "id": "timing",
+                    "name": "Timing",
+                    "joinsidebar": "content",
+                    "fields": [
+                        {
+                            "id": "start",
+                            "name": "Start",
+                            "type": "select",
+                            "options": ["initially", "withprevious", "afterprevious"],
+                            "translations": {
+                                "initially": {"de": "anfangs"},
+                                "withprevious": {"de": "mit vorigem"},
+                                "afterprevious": {"de": "nach vorigem"}
+                            },
+                            "default": "afterprevious"
+                        },
+                        {
+                            "id": "delay",
+                            "name": "Verzögerung",
+                            "type": "float",
+                            "suffixes": ["s", "ms", "min"],
+                            "defaultsuffix": "s",
+                            "default": 0
+                        },
+                        {
+                            "id": "duration",
+                            "name": "Dauer",
+                            "type": "float",
+                            "suffixes": ["s", "ms", "min"],
+                            "defaultsuffix": "s",
+                            "default": 0
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

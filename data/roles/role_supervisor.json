@@ -1,0 +1,12 @@
+{
+    "id": "role.supervisor",
+    "type": "role",
+    "title": "Supervisor",
+    "remarks": "Supervisor verfügen über erweiterte Berechtigungen gegenüber Standardnutzern und können insbesondere das System überwachen, anders als Administratoren aber keine administrativen Aufgaben durchführen (Benutzerverwaltung etc.).",
+    "fields": {
+        "id": "supervisor",
+        "name": "Supervisor",
+        "defaultaccessibility": "writable",
+        "changeOwnPassword": true
+    }
+}

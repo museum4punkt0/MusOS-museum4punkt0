@@ -1,0 +1,12 @@
+{
+    "id": "role.designer",
+    "type": "role",
+    "title": "Designer",
+    "remarks": "Die Rolle \"Designer\" erlaubt lediglich den Zugriff auf einen Teil des Systems, insbesondere auf Gestaltungselemente wie Medien, Stylesheets usw.",
+    "fields": {
+        "id": "designer",
+        "name": "Designer",
+        "defaultaccessibility": "hidden",
+        "changeOwnPassword": true
+    }
+}

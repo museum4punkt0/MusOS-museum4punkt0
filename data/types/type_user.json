@@ -1,0 +1,81 @@
+{
+    "id": "type.user",
+    "type": "type",
+    "title": "Benutzer",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "user",
+        "name": "Benutzer",
+        "parent": "",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "hidden",
+                    "writableFor": ["role.admin"]
+                }
+            }
+        ],
+        "titlefields": ["name"],
+        "tablefields": ["#imageurl", "email", "name", "roles"],
+        "placeholderurl": "placeholders/person.svg",
+        "iconurl": "icons/material/baseline/baseline-person-24px.svg",
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "general",
+                    "name": "Allgemein",
+                    "fields": [
+                        {
+                            "id": "email",
+                            "name": "E-Mail (Login)",
+                            "type": "text",
+                            "mandatory": true
+                        },
+                        {
+                            "id": "name",
+                            "name": "Name",
+                            "type": "text"
+                        },
+                        {
+                            "id": "roles",
+                            "name": "Rollen",
+                            "type": "reference",
+                            "reftypes": ["role"]
+                        },
+                        {
+                            "id": "imageurl",
+                            "name": "Bild",
+                            "type": "mediaurl",
+                            "maxlength": 500
+                        }
+                    ]
+                },
+                {
+                    "id": "commands",
+                    "name": "Befehle",
+                    "fields": [
+                        {
+                            "id": "password",
+                            "name": "Passwort",
+                            "type": "password",
+                            "mandatory": true
+                        },
+                        {
+                            "id": "resetpaswordcommand",
+                            "name": "Passwort zurücksetzen",
+                            "type": "command",
+                            "resturl": "/resetuserpassword",
+                            "restmethod": "POST",
+                            "body": "{userid: email, password: password}"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

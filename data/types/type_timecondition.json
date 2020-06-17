@@ -1,0 +1,57 @@
+{
+    "id": "type.timecondition",
+    "type": "type",
+    "title": "Uhrzeit",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "timecondition",
+        "name": "Uhrzeit",
+        "parent": "condition",
+        "internal": true,
+        "titlefields": [{"text": "von"}, "from", {"text": "bis"}, "to"],
+        "tablefields": ["#title"],
+        "iconurl": "icons/mdi/clock-box.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.scenography"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "condition",
+                    "name": "Bedingung",
+                    "fields": [
+                        {
+                            "id": "from",
+                            "name": "von",
+                            "type": "time",
+                            "mandatory": true
+                        },
+                        {
+                            "id": "to",
+                            "name": "bis",
+                            "type": "time",
+                            "mandatory": true
+                        },
+                        {
+                            "id": "inverse",
+                            "name": "invers",
+                            "type": "bool",
+                            "default": false,
+                            "tooltip": "falls die Uhrzeit NICHT in besagten Bereich fällt"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

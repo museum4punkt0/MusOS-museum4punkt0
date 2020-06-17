@@ -1,0 +1,55 @@
+{
+    "id": "type.stateproperty",
+    "type": "type",
+    "title": "Statusmerkmal",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "stateproperty",
+        "name": "Statusmerkmal",
+        "parent": "",
+        "titlefields": ["name"],
+        "tablefields": ["name"],
+        "placeholderurl": "placeholders/stateproperty.svg",
+        "iconurl": "icons/material/baseline/baseline-edit_attributes-24px.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.scenography"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "general",
+                    "name": "Allgemein",
+                    "fields": [
+                        {
+                            "id": "name",
+                            "name": "Name",
+                            "type": "text",
+                            "mandatory": true
+                        },
+                        {
+                            "id": "category",
+                            "name": "Kategorie",
+                            "type": "select",
+                            "options": ["globalstate", "visitorstate"],
+                            "translations": {
+                                "globalstate": {"de": "global"},
+                                "visitorstate": {"de": "pro Besucher"}
+                            },
+                            "default": "visitorstate"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

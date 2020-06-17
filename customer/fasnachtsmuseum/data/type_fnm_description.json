@@ -1,0 +1,53 @@
+{
+    "id": "type.fnm_description",
+    "type": "type",
+    "title": "Beschreibung",
+    "fields": {
+        "id": "fnm_description",
+        "name": "Beschreibung",
+        "parent": "",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.curator"]
+                }
+            }
+        ],
+        "internal": true,
+        "titlefields": ["category"],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "general",
+                    "name": "Beschreibung",
+                    "fields": [
+                        {
+                            "id": "category",
+                            "name": "Beschreibungskategorie",
+                            "type": "text",
+                            "mandatory": true
+                        },
+                        {
+                          "id": "fnm_description_values",
+                          "name": "Beschreibung",
+                          "type": "text",
+                          "maxlength": "10000",
+                          "mandatory": "false",
+                          "localizable": "false"
+                        },
+                         {
+                          "id": "sources",
+                          "name": "Quellen",
+                          "type": "text",
+                          "maxlength": "2000",
+                          "mandatory": "false",
+                          "localizable": "false"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

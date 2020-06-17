@@ -1,0 +1,12 @@
+{
+    "id": "role.office",
+    "type": "role",
+    "title": "Office",
+    "remarks": "Die Rolle \"Office\" erlaubt lediglich den Zugriff auf einen Teil des Systems, insbesondere auf Kontakte und andere organisatorische Bereiche.",
+    "fields": {
+        "id": "office",
+        "name": "Office",
+        "defaultaccessibility": "hidden",
+        "changeOwnPassword": true
+    }
+}

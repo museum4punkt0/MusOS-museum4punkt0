@@ -1,0 +1,13 @@
+{
+    "id": "channel.allmobiles",
+    "type": "channel",
+    "title": "Alle Mobilgeräte",
+    "objectaccess": {
+        "accessibility": "readonly",
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "allmobiles",
+        "name": "Alle Mobilgeräte"
+    }
+}

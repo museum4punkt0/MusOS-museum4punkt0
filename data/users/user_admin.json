@@ -1,0 +1,16 @@
+{
+    "id": "user.admin",
+    "type": "user",
+    "title": "Administrator",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "email": "admin@localhost",
+        "imageurl": "placeholders/star.svg",
+        "name": "Administrator",
+        "password": "contexagon",
+        "roles": ["role.admin", "role.developer"]
+    }
+}

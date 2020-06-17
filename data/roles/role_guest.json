@@ -1,0 +1,12 @@
+{
+    "id": "role.guest",
+    "type": "role",
+    "title": "Gast",
+    "remarks": "Gäste können auf dieselben Bereiche zugreifen wie Standardnutzer, allerdings nur lesend.",
+    "fields": {
+        "id": "guest",
+        "name": "Gast",
+        "defaultaccessibility": "readonly",
+        "changeOwnPassword": false
+    }
+}

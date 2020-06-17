@@ -1,0 +1,124 @@
+{
+    "id": "type.72BE0797-AA7E-46BA-9629-72E6583A606A",
+    "type": "type",
+    "title": "Example",
+    "fields": {
+        "id": "example",
+        "name": "Example",
+        "parent": "exhibit",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.curator"]
+                }
+            }
+        ],
+        "titlefields": ["name"],
+        "tablefields": ["#imageurl", "name"],
+        "iconurl": "icons/material/baseline/baseline-palette-24px.svg",
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "general",
+                    "name": "Allgemein",
+                    "fields": [
+                        {
+                            "id": "name",
+                            "name": "Objektbezeichnung",
+                            "type": "text",
+                            "maxlength": "50",
+                            "mandatory": "true",
+                            "localizable": "false"
+                        },
+                        {
+                            "id": "subcategory",
+                            "name": "Unterkategorie",
+                            "type": "select",
+                            "options": ["Radierungen", "Fotografie", "Grafiken", "Kupferstiche", "Zeichnungen", "Gemälde", "Sonstiges"]
+                        },
+                        {
+                            "id": "inventorynumber",
+                            "name": "Inventarnummer",
+                            "type": "number",
+                            "mandatory": "false"
+                        },
+                        {
+                            "id": "date",
+                            "name": "Datierung",
+                            "type": "date",
+                            "mandatory": "false"
+                        },
+                        {
+                            "id": "manufacturer",
+                            "name": "Hersteller",
+                            "type": "text",
+                            "maxlength": "100",
+                            "mandatory": "false",
+                            "localizable": "false"
+                        },
+                        {
+                            "id": "description",
+                            "name": "Beschreibung",
+                            "type": "text",
+                            "maxlength": "10000",
+                            "localizable": "true"
+                        }
+                    ]
+                },
+                {
+                    "id": "details",
+                    "name": "Details",
+                    "fields": [
+                        {
+                            "id": "preservationstate",
+                            "name": "Erhaltungszustand",
+                            "type": "text",
+                            "maxlength": "500",
+                            "mandatory": "false"
+                        },
+                        {
+                            "id": "preowner",
+                            "name": "Vorbesitzer",
+                            "type": "text",
+                            "maxlength": "5000",
+                            "mandatory": "false"
+                        },
+                        {
+                            "id": "price",
+                            "name": "Preis",
+                            "type": "number",
+                            "suffixes": ["EUR", "CHF", "USD", "DM", "Sonstige"],
+                            "defaultsuffix": "EUR",
+                            "mandatory": "false",
+                            "localizable": "false"
+                        },
+                        {
+                            "id": "value",
+                            "name": "Wert",
+                            "type": "number",
+                            "suffixes": ["EUR", "CHF", "USD", "DM", "Sonstige"],
+                            "defaultsuffix": "EUR",
+                            "mandatory": "false",
+                            "localizable": "false"
+                        }
+                    ]
+                },
+                {
+                    "id": "images",
+                    "name": "Bilder",
+                    "fields": [
+                        {
+                            "id": "imagelist",
+                            "name": "Bilder",
+                            "type": "medialist",
+                            "mandatory": "false",
+                            "localizable": "false"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

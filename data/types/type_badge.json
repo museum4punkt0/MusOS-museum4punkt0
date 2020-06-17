@@ -1,0 +1,92 @@
+{
+    "id": "type.badge",
+    "type": "type",
+    "title": "Badge",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "badge",
+        "name": "Badge",
+        "parent": "",
+        "titlefields": ["name"],
+        "tablefields": ["name", "visitortype.name", "identifier"],
+        "placeholderurl": "placeholders/badge.svg",
+        "iconurl": "icons/material/baseline/baseline-assignment_ind-24px.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.scenography"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "general",
+                    "name": "Allgemein",
+                    "fields": [
+                        {
+                            "id": "name",
+                            "name": "Name",
+                            "type": "text",
+                            "mandatory": true
+                        },
+                        {
+                            "id": "identifier",
+                            "name": "ID",
+                            "type": "text",
+                            "mandatory": true
+                        },
+                        {
+                            "id": "effects",
+                            "name": "Effekte",
+                            "type": "reference",
+                            "reftypes": ["story"],
+                            "tooltip": "nur nötig, wenn bei jedem Sensor derselbe Effekte ausgelöst werden soll, andernfalls die einzelnen Sensoren entsprechend konfigurieren"
+                        },
+                        {
+                            "id": "visitortype",
+                            "name": "Besuchertyp",
+                            "type": "reference",
+                            "reftypes": ["visitortype"],
+                            "quantity": "single",
+                            "mandatory": true,
+                            "tooltip": "nur nötig, wenn ein Badge einen bestimmten Besuchertyp repräsentieren soll"
+                        }
+                    ]
+                },
+                {
+                    "id": "commands",
+                    "name": "Befehle",
+                    "fields": [
+                        {
+                            "id": "testsensor",
+                            "name": "Sensor-Name",
+                            "type": "text",
+                            "transient": true
+                        },
+                        {
+                            "id": "entercommand",
+                            "name": "Annäherung an Badge-Sensor auslösen",
+                            "type": "command",
+                            "resturl": "/trigger/badgesensor/<testsensor>?method=enter&badge=<identifier>",
+                            "restmethod": "GET"
+                        },
+                        {
+                            "id": "leavecommand",
+                            "name": "Entfernung von Badge-Sensor auslösen",
+                            "type": "command",
+                            "resturl": "/trigger/badgesensor/<testsensor>?method=leave&badge=<identifier>",
+                            "restmethod": "GET"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,50 @@
+{
+    "id": "type.textparameter",
+    "type": "type",
+    "title": "Textparameter",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "textparameter",
+        "name": "Textparameter",
+        "parent": "parameter",
+        "internal": true,
+        "titlefields": ["key", {"text": "→"}, "value"],
+        "tablefields": ["key", "value"],
+        "iconurl": "icons/mdi/textbox.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.any"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "item",
+                    "name": "Element",
+                    "fields": [
+                        {
+                            "id": "key",
+                            "name": "Schlüssel",
+                            "type": "text",
+                            "mandatory": true
+                        },
+                        {
+                            "id": "value",
+                            "name": "Wert",
+                            "type": "text",
+                            "maxlength": 20000
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,12 @@
+[Unit]
+Description=MusOS PIR Sensor
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/pi/MusOS_Sensor/sensor.py
+WorkingDirectory=/home/pi/MusOS_Sensor
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
