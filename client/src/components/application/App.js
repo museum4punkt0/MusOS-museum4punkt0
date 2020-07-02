@@ -15,8 +15,6 @@ import React from 'react';
 import {MuiThemeProvider, createMuiTheme} from '@material-ui/core/styles';
 import {Provider} from 'react-redux';
 import store from '../../store.js';
-import {MuiPickersUtilsProvider} from 'material-ui-pickers';
-import DateFnsUtils from '@date-io/date-fns';
 
 import '../../App.css';
 
@@ -110,13 +108,11 @@ class App extends React.Component {
             
         return (
             <MuiThemeProvider theme={themeMusos}>
-                <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                    <Provider store={store}>
-                        <div>
-                            <CBoxView onAlive={onAlive}/>
-                        </div>
-                    </Provider>
-                </MuiPickersUtilsProvider>
+                <Provider store={store}>
+                    <div>
+                        <CBoxView onAlive={onAlive}/>
+                    </div>
+                </Provider>
             </MuiThemeProvider>
         );
     }
