@@ -1,7 +1,7 @@
-# MusOS
+# MusOS-museum4punkt0
 
-*MusOS* is an object database and network sensor and kiosk system
-with a flexible storytelling engine.
+*MusOS-museum4punkt0* is an object database and network sensor and
+kiosk system with a flexible storytelling engine.
 
 Individual content (images, videos, text slides etc.)
 can be delivered to clients flexibly from a server triggered by sensors
@@ -12,8 +12,8 @@ sensor software. While the sensor software is deployed manually
 (running on a Raspberry Pi), the client software is
 delivered by the server as a web application.
 
-*MusOS* is based on web technologies, but can be run on a local network
-without difficulty, not requiring an internet connection.
+*MusOS-museum4punkt0* is based on web technologies, but can be run
+on a local network without difficulty, not requiring an internet connection.
 
 (c) Copyright 2018-2020 contexagon GmbH
 
@@ -41,7 +41,7 @@ the system are published in this package.
 
 ## Getting Started
 
-*MusOS* was designed to run on **Linux** and **MacOS**.
+*MusOS-museum4punkt0* was designed to run on **Linux** and **MacOS**.
 
 This guide was made for *Ubuntu* (should work for similar Linux distributions
 like *Debian* or *Linux Mint*, too).
@@ -68,14 +68,14 @@ add the current user to the `docker` group:
     sudo groupadd docker
     sudo gpasswd -a $USER docker
 
-That's all you need to run *MusOS* on a server
-(plus the *MusOS* software of course).
+That's all you need to run *MusOS-museum4punkt0* on a server
+(plus the *MusOS-museum4punkt0* software of course).
 
 
 
 ### Installing
 
-As a developer (and for building the *MusOS* software),
+As a developer (and for building the *MusOS-museum4punkt0* software),
 you also need `npm`, and `python3-pip`:
 
     sudo apt-get install npm
@@ -113,7 +113,7 @@ by adding the `-d` command line switch):
 
     sudo docker-compose up --build
 
-The *MusOS* and the *MongoDB* container should be running now.
+The *MusOS-museum4punkt0* and the *MongoDB* container should be running now.
 You can check it by runing:
 
     sudo docker ps
@@ -124,7 +124,7 @@ in `define_db.sh` by running the script from the `scripts` folder:
     ./init_db.sh
 
 Now you can populate the database with arbitrary objects
-using the *MusOS* server API e.g.
+using the *MusOS-museum4punkt0* server API e.g.
 
     GET /object/<id>
     PUT /object
