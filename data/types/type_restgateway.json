@@ -1,0 +1,109 @@
+{
+    "id": "type.restgateway",
+    "type": "type",
+    "title": "REST Gateway",
+    "objectaccess": {
+        "accessibility": "hidden",
+        "readableFor": ["role.developer"],
+        "writableFor": ["role.system"]
+    },
+    "fields": {
+        "id": "restgateway",
+        "name": "REST Gateway",
+        "parent": "",
+        "titlefields": ["name", "ip"],
+        "tablefields": ["name", "protocol", "ip"],
+        "placeholderurl": "placeholders/gateway.svg",
+        "iconurl": "icons/material/baseline/baseline-dns-24px.svg",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "readonly",
+                    "writableFor": ["role.admin"],
+                    "readableFor": ["role.curator", "role.scenography"]
+                }
+            }
+        ],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "general",
+                    "name": "Allgemein",
+                    "fields": [
+                        {
+                            "id": "name",
+                            "name": "Name",
+                            "type": "text",
+                            "mandatory": true
+                        },
+                        {
+                            "id": "url",
+                            "name": "URL",
+                            "type": "text",
+                            "mandatory": true
+                        },
+                        {
+                            "id": "protocol",
+                            "name": "Protokoll",
+                            "type": "select",
+                            "options": ["http", "https"]
+                        },
+                        {
+                            "id": "gatewayuser",
+                            "name": "Benutzer",
+                            "type": "text"
+                        },
+                        {
+                            "id": "gatewaypassword",
+                            "name": "Password",
+                            "type": "password"
+                        }
+                    ]
+                },
+                {
+                    "id": "notes",
+                    "name": "Notizen",
+                    "fields": [
+                        {
+                            "id": "notes",
+                            "name": "Notizen",
+                            "type": "text",
+                            "maxlength": 5000
+                        }
+                    ]
+                },
+                {
+                    "id": "commands",
+                    "name": "Befehle",
+                    "fieldsets": [
+                        {
+                            "id": "diagnostics",
+                            "name": "Diagnose",
+                            "fields": [
+                                {
+                                    "id": "command1",
+                                    "name": "Show Serveritems",
+                                    "type": "command",
+                                    "resturl": "/command/knxbaos?user=<gatewayuser>&password=<gatewaypassword>&ip=<ip>&protocol=<protocol>&path=rest/serveritems"
+                                },
+                                {
+                                    "id": "command2",
+                                    "name": "Show Datapoints",
+                                    "type": "command",
+                                    "resturl": "/command/knxbaos?user=<gatewayuser>&password=<gatewaypassword>&ip=<ip>&protocol=<protocol>&path=rest/datapoints"
+                                },
+                                {
+                                    "id": "command3",
+                                    "name": "Show Datapoint Descriptions",
+                                    "type": "command",
+                                    "resturl": "/command/knxbaos?user=<gatewayuser>&password=<gatewaypassword>&ip=<ip>&protocol=<protocol>&path=rest/datapoints/descriptions"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

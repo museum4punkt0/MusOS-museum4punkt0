@@ -160,7 +160,82 @@ and build and run the software like this:
 plus a number of Python libraries you can find in `server/modules/requirements.txt`
 and a number of JavaScript / React libraries you can find in `client/package.json`.
 
+## Changes for Project "5 Units" in 2021/2022
 
+## Extensions for the integration of the "mask scanner" station into the MusOS platform:
+
+The project required preparation for the integration of the "mask scanner" station, since the stations of the "5 units" were developed at physically different locations and therefore a test with the station running was not possible. The integration is carried out during installation in the then completed museum. This means that in a summary station, visitors can have the image created by the mask scanner displayed again.
+
+The mask scanner station has been expanded so that a prefix to be obtained via a URL can be added to the file name of the image to be saved. It was also implemented that all created images are physically deleted from the computer after one day.
+
+A Raspberry Pi (similar to the stations of the first iteration of the project module) was integrated into the mask scanner, which is configured using the Python and shell scripts in this directory as a beacon sensor and as a simple rest server. If a visitor approaches the station, this is registered using the beacon that is carried along. If the station is now started with the buzzer, the station can get the current UUID of the visitor beacon via the rest service on the Raspberry Pi and add this to the file name of the image as a prefix when saving.
+
+A rest server with an API is also started on the mask scanner station itself, which the central server can use to load the image belonging to the respective visitor beacon from the station. This can then be used at other stations in the exhibition. For the Fasnachtsmuseum Schloss Langenstein, the picture is shown again at the "Visit summary" station. In terms of data protection, there are no concerns about storage, as only a masked image is shown (with a rendered overlay). The images on the mask station will be permanently deleted after one day. The server itself does not persist the image, but merely displays it on demand via the rest call.
+
+
+### Application:
+
+A Raspberry Pi 3 or 4 with Raspberry Pi OS or Ubuntu Mate must be integrated into the "mask scanner" station. Ideally in the front area of the housing and not hidden or shielded by other electronics (the radio signals (BLE) must be able to be received unhindered).
+
+The ".../sensors/beacons" directory must be copied from this repository to this Raspberry.
+
+Now start the scripts "setup\_mask\_sensor.sh" and "start\_rest\_server.sh".
+
+The scripts start the beacon sensor, a lightweight rest server, establish server communication to receive the beacon data and respond to visitor actions, and allow the mask scanner to determine the identity of the beacon being carried.
+
+The "getImageAPI.sh" and "start\_rest\_server.sh" scripts must be copied from the ".../sensors/beacons" directory to the mask scanner's computer.
+
+Then start the script "start\_rest\_server.sh" here as well.
+
+The URL of the mask scanner must be given on the server. This can be created as a MusOS object in the database.
+For this purpose, a database connection to MongoDB can be established and an object of the type "REST Gateway" can be created.
+
+The definition can be found under ".../data/types/typerestgateway.json":
+
+  ``"definition": {
+             "fieldsets": [
+                 {
+                     "id": "general",
+                     "name": "General",
+                     "fields": [
+                         {
+                             "id": "name",
+                             "name": "name",
+                             "type": "text",
+                             "mandatory": true
+                         },
+                         {
+                             "id": "url",
+                             "name": "URL",
+                             "type": "text",
+                             "mandatory": true
+                         },
+                         {
+                             "id": "protocol",
+                             "name": "Protocol",
+                             "type": "select",
+                             "options": ["http", "https"]
+                         },
+                         {
+                             "id": "gatewayuser",
+                             "name": "user",
+                             "type": "text"
+                         },
+                         {
+                             "id": "gateway password",
+                             "name": "Password",
+                             "type": "password"
+                         }
+                     ]
+                 }``
+
+The response to this REST call, i.e. the image received, can finally be integrated into the individual stations.
+
+
+## Extension for the integration of the "Wooden Wall" station of the FNM Langenstein into the MusOS platform
+
+The "Interactive Wooden Wall" station from the first part of the project module combines the technologies of projection mapping and conductive ink into a quiz station in which visitors are presented with a few simple questions about what they have learned in the exhibition. The station consists primarily of a large wooden panel on which the design was applied using conductive and prints.
+Another goal of the project extension in the "5 Units" was to integrate this station into the MusOS platform. This integration was prepared here by installing a Raspberry Pi at the station, which in turn acts as a beacon sensor and rest server. When approaching, the visitor is registered. Since there is a finite number of choices and questions (both are physically connected to the wooden wall), only the question number and whether the question was answered correctly the first time is transmitted to the MusOS server. These answers can also be displayed on a summary station when integrated into the museum.
 
 ## Authors
 

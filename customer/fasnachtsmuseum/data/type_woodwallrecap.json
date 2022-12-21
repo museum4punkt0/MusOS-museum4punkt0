@@ -1,0 +1,51 @@
+{
+    "id": "type.fnm_woodwallrecap",
+    "type": "type",
+    "title": "So gut warst du im Abschluss-Quiz",
+    "beaconid": "beaconid"
+    "fields": {
+        "id": "fnm_woodwall",
+        "name": "Holzwand",
+        "parent": "",
+        "typeaccess": [
+            {
+                "type": "access",
+                "fields": {
+                    "accessibility": "writable",
+                    "writableFor": ["role.curator"]
+                }
+            }
+        ],
+        "internal": true,
+        "titlefields": ["category"],
+        "definition": {
+            "fieldsets": [
+                {
+                    "id": "general",
+                    "name": "Quiz Holzwand",
+                    "fields": [
+
+                        {
+                            "id": "proteins",
+                            "name": "Fisch oder Fleisch - auf Anhieb richtig?",
+                            "type": "select",
+                            "options": ["Ja, Bravo!", "Leider nein!"]
+                        },
+                        {
+                            "id": "masksandcostumes",
+                            "name": "Masken und Verkleidung - auf Anhieb richtig?",
+                            "type": "select",
+                            "options": ["Ja, Bravo!", "Leider nein!"]
+                        },
+                        {
+                            "id": "scepterorquirks",
+                            "name": "Zepter oder Marotte - auf Anhieb richtig?",
+                            "type": "select",
+                            "options": ["Ja, Bravo!", "Leider nein!"]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
