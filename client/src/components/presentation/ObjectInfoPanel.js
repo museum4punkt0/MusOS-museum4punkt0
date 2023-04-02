@@ -3,11 +3,6 @@
  * 
  * @author    Jens Gruschel
  * @copyright © 2020 contexagon GmbH
- *
- * @license
- * This file is part of MusOS and is released under the GPLv3 license.
- * Please see the LICENSE.md file that should have been included
- * as part of this package.
  */
 
 
@@ -24,11 +19,29 @@ import {patchServerUrl} from "../../config";
 import {selectFieldValue, selectFieldName} from "../../redux/types/selectors";
 import {selectTranslation} from "../../redux/configuration/selectors";
 import {findTaggedImage} from "../../utils";
+import MediaPanel from "../base/MediaPanel";
+import {openMediaOverlayForUrl} from "../../operations/view";
+import {showAccordionItem} from "../../operations/cbox";
+import MediaViewerOverlay from "../base/MediaViewerOverlay";
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 
 
 class ObjectInfoPanel extends React.Component {
 
+    handleAccordionChange = panel => (event, expanded) => {
+        console.log("handleAccordionChange", panel, event, expanded);
+        this.props.showAccordionItem(expanded ? panel : false);
+    };
+
     render() {
+
+        if(this.props.accordionSelected == null) {
+            window.scrollTo(0,0);
+        }
+
+        console.log("ObjectInfoPanel.render()", this.props);
 
         // the outermost div takes care of the layout,
         // the next div does nothing, but can be referenced by customized CSS,
@@ -48,27 +61,37 @@ class ObjectInfoPanel extends React.Component {
                         this.props.subjects.map((subject, index) => <ObjectInfo
                             key={(subject && (subject.id + "/" + index)) || index}
                             subject={subject}
+                            accordionSelected={this.props.accordionSelected}
                             index={index}
                             fields={this.props.fields[index]}
                             referencedObjects={this.props.referencedObjects[index]}
+                            referencedMediaObjects={this.props.referencedMediaObjects}
                             imagetags={this.props.imagetags}
+                            openMediaOverlayForUrl={this.props.openMediaOverlayForUrl}
+                            handleAccordionSelection={this.handleAccordionChange}
                         />)
                     }
                     </div>
                 </div>
             </div>
+            <MediaViewerOverlay/>
         </div>;
     }
-
 }
 
 
+
+// This section is for the "Paternoster" part of MusOS - a extension made for the Fasnachtsmuseum Schloss Langenstein in the year 2021 as a special application.
+// It is used for the big wall cabinets in the to be built museum building.
+// Every media item and meta data entry with the respective tag will be included in this application. 
+
 function ObjectInfo(props) {
 
-    const { subject, index, fields, referencedObjects, imagetags } = props;
+    const { subject, index, fields, referencedObjects, referencedMediaObjects, imagetags, accordionSelected, handleAccordionSelection } = props;
 
     const taggedImage = subject && findTaggedImage(subject, referencedObjects, imagetags);
     const taggedImageUrl = patchServerUrl((taggedImage && taggedImage.fields && taggedImage.fields.url) || (subject && subject.imageurl));
+
 
     const [{ isOver, canDrop }, drop] = useDrop({
         accept: DRAGGABLE_MENU_OBJECT_TYPE,
@@ -81,25 +104,69 @@ function ObjectInfo(props) {
             isOver: !!monitor.isOver(),
             canDrop: !!monitor.canDrop()
 		}),
-	})
+	});
 
     return <div
         ref={drop}
         className={"objectinfo" + (!subject ? " missing" : "") + (canDrop ? " dragging" : "") + (isOver ? " dropping" : "")}
     >
-        <div className="objectinfoimage">
+        <div className="accimg">
             {subject && subject.imageurl && <img src={taggedImageUrl}/>}
         </div>
         <ul>
             {
-                fields.map(field => <li key={field.id} className={"field-" + field.id}>
-                    <label>{field.name}</label>
-                    <p>{field.value}</p>
-                </li>)
+                fields.map(field => {
+                    const accordionKeyword = "#accordion#";
+                    if(field.id !== "medialist") {
+                        console.log("ObjectInfoPanel", field);
+                        if(fields.map(field => field.id).includes(accordionKeyword) && field.id !== "menutitle") {
+                            if(field.id !== accordionKeyword) {
+                                return <ExpansionPanel expanded={accordionSelected === field.id} key={field.id} className={"accordion"} onChange={handleAccordionSelection(field.id)}>
+                                    <ExpansionPanelSummary className={"accordionSummary"}>{field.name}</ExpansionPanelSummary>
+                                    <ExpansionPanelDetails className={"accordionDetails"}>{field.value}</ExpansionPanelDetails>
+                                </ExpansionPanel>
+                            }
+                        }
+                        else {
+                            return <li key={field.id} className={"field-" + field.id}>
+                                <label>{field.name}</label>
+                                <p>{field.value}</p>
+                            </li>
+                        }
+                    } else {
+                        return <ExpansionPanel expanded={accordionSelected === field.id} key={field.id} className={"accordion"} onChange={handleAccordionSelection(field.id)}>
+                            <ExpansionPanelSummary className={"accordionSummary"}>Medien</ExpansionPanelSummary>
+                            <ExpansionPanelDetails className={"accordionDetails"}>
+                                {
+                                     field.value.split(",").map(mediaId => {
+                                        const id = mediaId.trim();
+                                        const mediaItem = findMediaItem(id, referencedMediaObjects);
+                                        if(mediaItem) {
+                                            let mediaUrl = patchServerUrl(mediaItem.fields.url);
+                                            return <MediaPanel url={mediaUrl} showControls={true} onClick={() => props.openMediaOverlayForUrl(mediaUrl, mediaItem.fields.title)}/>
+                                        }
+                                    })
+                                }
+                            </ExpansionPanelDetails>
+                        </ExpansionPanel>
+                    }
+                })
             }
         </ul>
     </div>;
 }
+
+
+const findMediaItem = (id, referencedMediaObjects) => {
+
+    for(var key of Object.keys(referencedMediaObjects)) {
+
+        let mediaObject = referencedMediaObjects[key];
+        if(id === mediaObject.id) {
+            return mediaObject;
+        }
+    }
+};
 
 
 const mapStateToProps = (state, props) => {
@@ -123,8 +190,10 @@ const mapStateToProps = (state, props) => {
     return {
         subjects: subjects,
         referencedObjects: referencedObjects,
+        referencedMediaObjects: props.referencedObjects,
         fields: fields,
+        accordionSelected: state.cbox.accordionSelected
     };
 };
 
-export default connect(mapStateToProps)(ObjectInfoPanel);
+export default connect(mapStateToProps, {openMediaOverlayForUrl, showAccordionItem})(ObjectInfoPanel);
