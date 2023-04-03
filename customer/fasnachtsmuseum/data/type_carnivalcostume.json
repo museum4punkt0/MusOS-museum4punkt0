@@ -227,6 +227,71 @@
 
                 ]
             },
+
+                {
+                    "id": "paternoster",
+                    "name": "Paternoster",
+                    "fields": [
+                        {
+                            "id": "menutitle",
+                            "name": "Titel",
+                            "type": "text",
+                            "maxlength": "500",
+                            "mandatory": "false",
+                            "localizable": "false"
+                        },
+                        {
+                            "id": "menusubtitle",
+                            "name": "Untertitel",
+                            "type": "text",
+                            "maxlength": "500",
+                            "mandatory": "false",
+                            "localizable": "false"
+                        },
+                        {
+                            "id": "nameoflunaticasylum",
+                            "name": "Wie heisst die Narrenzunft?",
+                            "type": "text",
+                            "maxlength": "5000",
+                            "mandatory": "false",
+                            "localizable": "false"
+                        },
+                        {
+                            "id": "originoflunaticsname",
+                            "name": "Wo kommt der Name her?",
+                            "type": "text",
+                            "maxlength": "5000",
+                            "mandatory": "false",
+                            "localizable": "false"
+                        },{
+                            "id": "lunaticsshout",
+                            "name": "Wie ist der Narrenruf?",
+                            "type": "text",
+                            "maxlength": "5000",
+                            "mandatory": "false",
+                            "localizable": "false"
+                        },{
+                            "id": "lunaticshistory",
+                            "name": "Kennst du die Geschichte der Zunft?",
+                            "type": "text",
+                            "maxlength": "5000",
+                            "mandatory": "false",
+                            "localizable": "false"
+                        },{
+                            "id": "lunaticsgathering",
+                            "name": "Wie läuft dort die Fasnacht ab?",
+                            "type": "text",
+                            "maxlength": "5000",
+                            "mandatory": "false",
+                            "localizable": "false"
+                        },{
+                            "id": "shelfrow",
+                            "name": "Regalreihe (von links nach rechts)",
+                            "type": "select",
+                            "options": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+                        }
+                    ]
+                },
                  {
                 "id": "traditons",
                 "name": "Bräuche",
